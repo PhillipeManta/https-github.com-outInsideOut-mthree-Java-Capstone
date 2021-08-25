@@ -1,5 +1,6 @@
 package com.sg.capstone.models;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 /**
@@ -14,6 +15,10 @@ public class Posts {
     private String commentText;
     
     private Set<Role> roles;
+    
+    private LocalDate date;
+    
+    private boolean isPosted;
 
     
     public int getId() {
@@ -46,6 +51,22 @@ public class Posts {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+    
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+    
+    public boolean getIsPosted() {
+        return isPosted;
+    }
+
+    public void setIsPosted(boolean isPosted) {
+        this.isPosted = isPosted;
     }
    
 }
