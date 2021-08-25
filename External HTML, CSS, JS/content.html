@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Hello Security: Home</title>
+        <title>Hello Security: Content</title>
         <!-- Bootstrap core CSS -->
         <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">        
     </head>
@@ -11,12 +11,12 @@
             <hr/>
             <div class="navbar">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active">
+                    <li role="presentation">
                       <a href="${pageContext.request.contextPath}/home">
                         Home
                       </a>
                     </li>
-                    <li role="presentation">
+                    <li role="presentation" class="active">
                       <a href="${pageContext.request.contextPath}/content">
                         Content (must have the user role)
                       </a>
@@ -28,11 +28,13 @@
                     </li>
                 </ul>    
             </div>
-            <h2>Home Page</h2>
-
+            <h2>Content Page</h2>
+           
             <p>
-                The landing page of our application - anyone can get here, including anonymous users.
+                Only users with the USER role can see this page.
             </p>
+            
+            
         </div>
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
