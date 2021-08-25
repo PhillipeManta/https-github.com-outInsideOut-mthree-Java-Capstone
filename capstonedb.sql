@@ -40,7 +40,9 @@ imageId int,
 Foreign Key fk_posts_images(imageId)
 references images(`id`),
 
-post varchar(1000) not null
+post varchar(1000) not null,
+isPosted boolean not null default false,
+postDate date not null
 );
 
 insert into `role`(`id`,`role`)
@@ -54,11 +56,11 @@ insert into `user`(`id`,`username`,`password`,`enabled`, roleId)
 insert into images(`id`, imageURL)
     values(301,"url1"), (302,"url2"), (303,"url3");
         
-insert into posts(postId, userId, roleId, imageId, post)
+insert into posts(postId, userId, roleId, imageId, post, isPosted, postDate)
 values
-('401','101','1','303','post1'),
-('402','101','1','302','post2'),
-('403','102','2','302','post3'),
-('404','102','2','301','post4'),
-('405','102','2','301','post5'),
-('406','102','2','303','post6');
+('401','101','1','303','post1',true,'2017-09-01'),
+('402','101','1','302','post2',true,'2018-10-01'),
+('403','102','2','302','post3',true,'2019-09-01'),
+('404','102','2','301','post4',false,'2018-12-01'),
+('405','102','2','301','post5',false,'2020-09-01'),
+('406','102','2','303','post6',true,'2017-08-01');
