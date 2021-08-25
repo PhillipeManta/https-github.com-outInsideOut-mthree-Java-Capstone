@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sg.capstone.dao;
 
 import com.sg.capstone.models.Posts;
@@ -17,26 +12,25 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
- * @author Raluca
+ * @author kylerudy
  */
-@Component
+@Repository
+@Profile("database")
 public class CapstoneDbDao implements CapstoneDao{
     @Autowired
     JdbcTemplate jdbc;
-    
-    @Autowired
-    JdbcTemplate template;
-
+  
     @Override
     public User getUserById(int id) throws InvalidIdException {
 
@@ -270,7 +264,7 @@ public class CapstoneDbDao implements CapstoneDao{
                 + "From posts \n"
                 + "Inner Join `User` On posts.userid = user.id\n";
 
-        List<Posts> toReturn = template.query(query, new PostMapper());
+        List<Posts> toReturn = jdbc.query(query, new PostMapper());
 
         return toReturn;
     }
@@ -285,7 +279,7 @@ public class CapstoneDbDao implements CapstoneDao{
 
         Posts toReturn = null;
         try {
-            toReturn = template.queryForObject(query, new PostMapper(), id);
+            toReturn = jdbc.queryForObject(query, new PostMapper(), id);
         } catch (EmptyResultDataAccessException ex) {
         }
 
@@ -327,7 +321,7 @@ public class CapstoneDbDao implements CapstoneDao{
             }
         };
 
-        template.update(psc, holder);
+        jdbc.update(psc, holder);
         int newBeachCommentId = holder.getKey().intValue();
 
         toAdd.setId(newBeachCommentId);
@@ -353,7 +347,7 @@ public class CapstoneDbDao implements CapstoneDao{
                 + "post = ?\n"
                 + "Where postId = ?";
 
-        int rowsAffected = template.update(updateStatement,
+        int rowsAffected = jdbc.update(updateStatement,
                 updatedPost.getUser().getId(),
                 updatedPost.getCommentText(),
                 updatedPost.getId());
@@ -380,7 +374,7 @@ public class CapstoneDbDao implements CapstoneDao{
                 + "From posts \n"
                 + "Where postId = ?";
 
-        template.update(deleteStatement, id);
+        jdbc.update(deleteStatement, id);
     }
     
     private class PostMapper implements RowMapper<Posts> {

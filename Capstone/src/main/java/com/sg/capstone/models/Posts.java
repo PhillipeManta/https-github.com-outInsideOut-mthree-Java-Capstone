@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sg.capstone.models;
 
 import java.util.Set;
 
-
 /**
  *
- * @author Raluca
+ * @author kylerudy
  */
 public class Posts {
     private int id;
