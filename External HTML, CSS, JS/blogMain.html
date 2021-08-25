@@ -13,7 +13,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
         <!-- Additional CSS-->
-        
+        <link rel="stylesheet" href="css/styles.css">
+
     </head>
     <body>
         <div class="container">
@@ -22,10 +23,34 @@
           
             <ul class="list-group" id="errorMessages"></ul>
         </div>
-        <div class="container2">
-            <button type="button">Click Me!</button>
-        </div>
-    
+        <form class="form-horizontal" role="form" id="displayForm">
+            <div class="form-group row">
+                <div class="offset-md-3 col-md-3">
+                    <input type="hidden" id="editContactId">
+                    <button type="button"
+                            id="addPostButton"
+                            class="btn btn-primary">
+                        Add Post
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button"
+                            id="ViewPendingPostsButton"
+                            class="btn btn-primary">
+                        View Pending Posts
+                    </button>
+                </div>
+            </div> 
+        </form>
+        <hr>          
+        <ul>
+            <!-- Would actually extract the correct static page headers-->
+            <li><a href="default.asp">Home</a></li >
+            <li><a href="news.asp">News</a></li>
+            <li><a href="contact.asp">Contact</a></li>
+            <li><a href="about.asp">About</a></li>
+        </ul>
+        <hr>
     
     
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
