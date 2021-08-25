@@ -1,6 +1,7 @@
 package com.sg.capstone.models;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -8,19 +9,16 @@ import java.util.Set;
  * @author kylerudy
  */
 public class Posts {
+
     private int id;
-
     private User user;
-
-    private String commentText;
-    
-    private Set<Role> roles;
-    
+    private String title;
+    private String imageURL;
+    private String post;
+    //private Set<Role> roles;
     private LocalDate date;
-    
     private boolean isPosted;
 
-    
     public int getId() {
         return id;
     }
@@ -36,23 +34,31 @@ public class Posts {
     public void setUser(User user) {
         this.user = user;
     }
-   
-    public String getCommentText() {
-        return commentText;
+
+    public String getTitle() {
+        return title;
     }
 
-    public void setCommentText(String commentText) {
-        this.commentText = commentText;
-    }
-    
-    public Set<Role> getRoles() {
-        return roles;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public String getImageURL() {
+        return imageURL;
     }
-    
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public String getPost() {
+        return post;
+    }
+
+    public void setPost(String post) {
+        this.post = post;
+    }
+
     public LocalDate getDate() {
         return date;
     }
@@ -60,13 +66,25 @@ public class Posts {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-    
-    public boolean getIsPosted() {
+
+    public boolean isPosted() {
         return isPosted;
     }
 
-    public void setIsPosted(boolean isPosted) {
-        this.isPosted = isPosted;
+    public void setPosted(boolean posted) {
+        isPosted = posted;
     }
-   
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Posts)) return false;
+        Posts posts = (Posts) o;
+        return id == posts.id && isPosted == posts.isPosted && user.equals(posts.user) && Objects.equals(title, posts.title) && Objects.equals(imageURL, posts.imageURL) && post.equals(posts.post) && date.equals(posts.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user, title, imageURL, post, date, isPosted);
+    }
 }

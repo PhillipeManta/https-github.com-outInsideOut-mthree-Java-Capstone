@@ -8,15 +8,11 @@ import java.util.Set;
  * @author kylerudy
  */
 public class User {
-  private int id;
 
+    private int id;
     private String username;
-
-    private String password;   
-
-    private boolean enabled;
-
-    private Set<Role> roles;
+    private String password;
+    private Role role;
 
     public int getId() {
         return id;
@@ -42,59 +38,24 @@ public class User {
         this.password = password;
     }
 
-    public boolean isEnabled() {
-        return enabled;
+    public Role getRole() {
+        return role;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return id == user.id && username.equals(user.username) && password.equals(user.password) && role.equals(user.role);
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + this.id;
-        hash = 89 * hash + Objects.hashCode(this.username);
-        hash = 89 * hash + Objects.hashCode(this.password);
-        hash = 89 * hash + (this.enabled ? 1 : 0);
-        hash = 89 * hash + Objects.hashCode(this.roles);
-        return hash;
+        return Objects.hash(id, username, password, role);
     }
-
-    @Override
-    public boolean equals(Object other) {
-
-        if (this == other) {
-            return true;
-        }
-        if (other == null) {
-            return false;
-        }
-        if (this.getClass() != other.getClass()) {
-            return false;
-        }
-
-        final User that = (User) other;
-
-        if (this.getId() != that.getId()) {
-            return false;
-        }
-        if (!this.getPassword().equals(that.getPassword())) {
-            return false;
-        }
-        if (!this.getUsername().equals(that.getUsername())) {
-            return false;
-        }
-
-        return Objects.equals(this.getRoles(), that.getRoles());
-
-    }  
 }

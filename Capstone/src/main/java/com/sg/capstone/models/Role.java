@@ -7,8 +7,8 @@ import java.util.Objects;
  * @author kylerudy
  */
 public class Role {
-    private int id;
 
+    private int id;
     private String roleName;
 
     public int getId() {
