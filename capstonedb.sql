@@ -8,6 +8,11 @@ create table `role`(
 `role` varchar(30) not null
 );
 
+create table images(
+`id` int primary key auto_increment,
+imageURL varchar(1000) not null
+);
+
 create table `user`(
 `id` int primary key auto_increment,
 `username` varchar(30) not null unique,
@@ -29,6 +34,11 @@ roleId int not null,
 
 Foreign Key fk_posts_role(roleId)
 references `role`(`id`),
+
+imageId int not null,
+
+Foreign Key fk_posts_images(imageId)
+references images(`id`),
 
 post varchar(1000) not null
 );
