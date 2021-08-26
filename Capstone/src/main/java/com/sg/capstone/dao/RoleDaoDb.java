@@ -52,6 +52,7 @@ public class RoleDaoDb implements RoleDao{
     }
 
     @Override
+    @Transactional
     public void deleteRoleById(int id) {
 
         String userDelete = "DELETE FROM user WHERE roleId = ?";

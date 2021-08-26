@@ -1,5 +1,6 @@
 package com.sg.capstone.models;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
@@ -15,7 +16,7 @@ public class Posts {
     private String title;
     private String imageURL;
     private String post;
-    private LocalDate date;
+    private Date date;
     private boolean isPosted;
 
     public int getId() {
@@ -58,11 +59,11 @@ public class Posts {
         this.post = post;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

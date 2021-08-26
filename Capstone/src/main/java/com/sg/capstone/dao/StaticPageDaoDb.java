@@ -6,6 +6,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -47,6 +48,7 @@ public class StaticPageDaoDb implements StaticPageDao{
     }
 
     @Override
+    @Transactional
     public void deleteStaticPageByTitle(String title) {
         final String DELETE_STATIC_PAGE = "DELETE FROM static WHERE title = ?";
         jdbc.update(DELETE_STATIC_PAGE, title);
