@@ -15,7 +15,6 @@ public class Posts {
     private String title;
     private String imageURL;
     private String post;
-    //private Set<Role> roles;
     private LocalDate date;
     private boolean isPosted;
 
