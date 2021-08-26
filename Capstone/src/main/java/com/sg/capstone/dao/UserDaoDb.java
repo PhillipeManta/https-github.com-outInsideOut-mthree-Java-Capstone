@@ -34,7 +34,7 @@ public class UserDaoDb implements UserDao {
     }
 
     private Role getRolesForUser(int id){
-        final String SELECT_ROLE_FOR_USER = "SELECT u.* FROM user u JOIN role r ON u.roleId = r.id WHERE r.id = ?";
+        final String SELECT_ROLE_FOR_USER = "SELECT r.* FROM role r JOIN user u ON u.roleId = r.id WHERE r.id = ?";
         return jdbc.queryForObject(SELECT_ROLE_FOR_USER, new RoleDaoDb.RoleMapper(), id);
     }
 
