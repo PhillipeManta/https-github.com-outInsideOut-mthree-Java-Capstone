@@ -59,7 +59,7 @@
                                                                                     <a class="nav-link" href="n">n</a> 
                                                                                 </li> )}  -->
 
-                        <li th:each="pageTitle : ${titles}" class="nav-item">
+                        <li th:each="pageTitle : ${allPageTitles}" class="nav-item">
                           <a class="nav-link" th:href="staticPage.html/page=${pageTitle}" th:text="${pageTitle}">Title</a>
                         </li>
 
