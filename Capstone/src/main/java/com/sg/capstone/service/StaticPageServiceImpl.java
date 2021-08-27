@@ -1,6 +1,8 @@
 package com.sg.capstone.service;
 
 import com.sg.capstone.dao.StaticPageDao;
+import com.sg.capstone.models.Content;
+import com.sg.capstone.models.Posts;
 import com.sg.capstone.models.StaticPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +49,15 @@ public class StaticPageServiceImpl implements StaticPageService{
     @Override
     public List<StaticPage> getAllStaticPages() {
         return dao.getAllStaticPages();
+    }
+
+    @Override
+    public void GetContent(Content c) {
+        StaticPage sp = new StaticPage();
+        sp.setImageURL(c.getImageURL());
+        sp.setTitle(c.getTitle());
+        sp.setPost(c.getPost());
+        dao.addStaticPage(sp);
     }
 
 

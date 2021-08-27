@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  *
  * @author fionn
  */
-public class Controller {
+public class PostsController {
    PostsService pS = new PostsServiceImpl();
    StaticPageService sPS = new StaticPageServiceImpl();
    
@@ -30,7 +30,7 @@ public class Controller {
        c.setStaticYN(Boolean.parseBoolean(request.getParameter("staticYN")));
        
        if (c.isStaticYN()) {
-           //
+           sPS.GetContent(c);
        }
        else {
            pS.GetContent(c);
