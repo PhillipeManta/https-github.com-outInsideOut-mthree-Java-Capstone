@@ -22,7 +22,9 @@
             </div>
             <div class="col-3 pt-3">
                 <button class="btn btn-info">login</button>
-                <a href="addBlog.html" class="mid-level btn btn-info">Add Content</a>
+                <span sec:authorize="hasRole(USER)">
+                  <a href="addBlog.html" class="mid-level btn btn-info">Add Content</a>
+                </span>
             </div>
         </div>
         <hr>

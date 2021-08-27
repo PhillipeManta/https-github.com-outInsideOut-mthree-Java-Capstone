@@ -21,8 +21,10 @@
                 <h1>Sarah's Blog</h1>
             </div>
             <div class="col-3 pt-3">
-                <a href="logon.html" class="btn btn-info">login</a>
-                <a href="addBlog.html" class="mid-level btn btn-info">Add Content</a>
+              <a href="logon.html" class="btn btn-info">login</a>
+              <span sec:authorize="hasRole(USER)">
+                  <a href="addBlog.html" class="mid-level btn btn-info">Add Content</a>
+              </span>
             </div>
         </div>
         <hr>
@@ -100,7 +102,7 @@
 
 
       <div th:each="blogPost : ${BlogPosts}">
-        <div class="container row blogPost my-5">
+        <span class="container row blogPost my-5">
           <div class="row title-row">
             <h3 th:text="blogPost.title">Blog 1</h3>
           </div>
@@ -113,11 +115,13 @@
           <div class="row date-row">
             <p th:text="blogPost.date">02/11/1678</p> 
           </div>
-          <span th:unless="${blogPost.isPosted}">
-            <div class="row admin">
-              <button class="btn btn-warning">DELETE</button>
-              <button class="btn btn-success">APPROVE</button>
-            </div>
+          <span sec:authorize="hasRole(ADMIN)">
+            <span th:unless="${blogPost.isPosted}">
+              <div class="row admin">
+                <button class="btn btn-warning">DELETE</button>
+                <button class="btn btn-success">APPROVE</button>
+              </div>
+            </span>
           </span>
         </div>
         <hr>
