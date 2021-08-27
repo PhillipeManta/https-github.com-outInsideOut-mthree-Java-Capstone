@@ -76,5 +76,11 @@ public class PostsServiceImpl implements PostsService{
         return upToDatePosts;
     }
 
+    @Override
+    public void updatePosts(Posts posts) {
+        posts.setPosted(true);
+        dao.updatePosts(posts);
+    }
+
 
 }
