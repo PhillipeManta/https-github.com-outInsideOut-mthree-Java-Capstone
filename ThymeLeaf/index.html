@@ -27,8 +27,8 @@
             </div>
         </div>
         <hr>
-        
     </div>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <!-- Container wrapper -->
         <div class="container-fluid">
@@ -49,7 +49,35 @@
         </div>
     </nav>
 
+
+
     <div class="container">
+      <div class="container row my-5" style="display: block;">
+        <h2 class="pt-8">Filter by hashtag</h2>
+        <form method="post" role="form" id="getHashTagPosts" class="mx-12">
+          <div class="form-group">
+            <label for="filterByHashtag" class="col-md-4 control-label">
+              Enter hashtag:
+            </label>
+            </div>
+            <div class="form-group" style="display: inline;">
+
+                <input type="text" 
+                    class="form-control"
+                    id="getHashtagPosts"
+                    placeholder="Title" 
+                    required>
+
+             
+                <button type="button"
+                        id="addButton"
+                        class="btn btn-primary mt-3">
+                    Submit
+                </button>
+ 
+            </div>
+        
+      </div>
       <div class="container row blogPost my-5">
         <div class="row title-row">
           <h3>Blog 1</h3>
