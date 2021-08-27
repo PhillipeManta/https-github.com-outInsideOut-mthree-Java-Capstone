@@ -41,9 +41,11 @@
                 <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
                                                                             <a class="nav-link" href="n">n</a> 
                                                                         </li> )}  -->
+
                 <li th:each="pageTitle : ${titles}" class="nav-item">
-                  <a class="nav-link" href="staticPage.html" th:text="${pageTitle}">Title</a>
+                  <a class="nav-link" th:href="staticPage.html/page=${pageTitle}" th:text="${pageTitle}">Title</a>
                 </li>
+
               </ul>
             </div>
         </div>

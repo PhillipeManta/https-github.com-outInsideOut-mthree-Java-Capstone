@@ -45,6 +45,28 @@
                     </div>
                 </div>
             </form>    
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <!-- Container wrapper -->
+                <div class="container-fluid">
+                    <!-- Collapsible wrapper -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
+                                                                                    <a class="nav-link" href="n">n</a> 
+                                                                                </li> )}  -->
+
+                        <li th:each="pageTitle : ${titles}" class="nav-item">
+                          <a class="nav-link" th:href="staticPage.html/page=${pageTitle}" th:text="${pageTitle}">Title</a>
+                        </li>
+
+                      </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
