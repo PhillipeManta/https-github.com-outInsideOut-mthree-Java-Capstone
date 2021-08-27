@@ -46,6 +46,14 @@ public class PostsDaoDb implements PostsDao{
         return allPosts;
     }
 
+    @Override
+    public List<Posts> getHashtagPosts(String hashtagWord) {
+        final String SELECT_ALL_HASHTAG_POSTS = "SELECT * FROM posts WHERE post LIKE '%#" + hashtagWord + "%'";
+        List<Posts> allPosts = jdbc.query(SELECT_ALL_HASHTAG_POSTS, new PostsMapper());
+        associateUsersForPosts(allPosts);
+        return allPosts;
+    }
+
     private void associateUsersForPosts(List<Posts> posts) {
         for (Posts post : posts) {
             post.setUser(getUserForPost(post.getId()));

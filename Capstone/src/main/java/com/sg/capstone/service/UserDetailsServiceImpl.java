@@ -23,7 +23,6 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
     }
 
-
     //asked for
     @Override
     public User getUserDetails(String username) throws UsernameFoundException {
@@ -42,8 +41,6 @@ public class UserDetailsServiceImpl implements UserDetailsService{
         }
         return dao.getUserById(id);
     }
-
-    //todo getAllUsers, updateUser,
 
 
 }
