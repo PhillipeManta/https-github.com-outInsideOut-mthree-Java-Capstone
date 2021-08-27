@@ -21,9 +21,8 @@
                 <h1>Sarah's Blog</h1>
             </div>
             <div class="col-3 pt-3">
-                <button class="btn btn-info">login</button>
-                <button class="mid-level btn btn-info">Add Content</button>
-                <button class="admin btn btn-info">View Pending</button>
+                <a href="logon.html" class="btn btn-info">login</a>
+                <a href="addBlog.html" class="mid-level btn btn-info">Add Content</a>
             </div>
         </div>
         <hr>
@@ -41,9 +40,11 @@
                 <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
                                                                             <a class="nav-link" href="n">n</a> 
                                                                         </li> )}  -->
+
                 <li th:each="pageTitle : ${titles}" class="nav-item">
-                  <a class="nav-link" href="staticPage.html" th:text="${pageTitle}">Title</a>
+                  <a class="nav-link" th:href="staticPage.html/page=${pageTitle}" th:text="${pageTitle}">Title</a>
                 </li>
+
               </ul>
             </div>
         </div>

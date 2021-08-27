@@ -3,7 +3,7 @@
 
 <!-- API KEY for TinyMCE - upkckobw0m4teak5t3ra2hk1uenlhboe0kukigiymy3aalfn -->
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/ ">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -34,35 +34,33 @@
                 <h1>Sarah's Blog</h1>
             </div>
             <div class="col-3 pt-3">
-                <button class="btn btn-info">login</button>
-                <button class="mid-level btn btn-info">Add Content</button>
-                <button class="admin btn btn-info">View Pending</button>
+                <a href="logon.html" class="btn btn-info">login</a>
+                <a href="addBlog.html" class="mid-level btn btn-info">Add Content</a>
             </div>
         </div>
         <hr>
         
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <!-- Container wrapper -->
-    <div class="container-fluid">
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About me</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
-                                                                        <a class="nav-link" href="n">n</a> 
-                                                                    </li> )}  -->
-          </ul>
+          <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
+                                                                            <a class="nav-link" href="n">n</a> 
+                                                                        </li> )}  -->
+
+                <li th:each="pageTitle : ${titles}" class="nav-item">
+                  <a class="nav-link" th:href="staticPage.html/page=${pageTitle}" th:text="${pageTitle}">Title</a>
+                </li>
+
+              </ul>
+            </div>
         </div>
-    </div>
     </nav>
 
     <div class="container mx-12">

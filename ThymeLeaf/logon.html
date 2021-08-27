@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/ ">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,8 +22,7 @@
             </div>
             <div class="col-3 pt-3">
                 <button class="btn btn-info">login</button>
-                <button class="mid-level btn btn-info">Add Content</button>
-                <button class="admin btn btn-info">View Pending</button>
+                <a href="addBlog.html" class="mid-level btn btn-info">Add Content</a>
             </div>
         </div>
         <hr>
@@ -36,25 +35,57 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About me</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
+                  <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
                                                                             <a class="nav-link" href="n">n</a> 
                                                                         </li> )}  -->
+
+                <li th:each="pageTitle : ${titles}" class="nav-item">
+                  <a class="nav-link" th:href="staticPage.html/page=${pageTitle}" th:text="${pageTitle}">Title</a>
+                </li>
+
               </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mx-12 my-12">
-      
-    </div>
+     <div class="container row my-5" style="display: block;">
+        <h2 class="pt-8">Login</h2>
+        <form method="post" role="form" id="logon" class="mx-12">
+          <div class="form-group">
+            
+            
+            <div class="form-group" style="display: inline;">
+            <label for="filterByHashtag" class="col-md-4 control-label">
+              Enter username:
+            </label>
+                <input type="text" 
+                    class="form-control"
+                    id="username"
+                    placeholder="username" 
+                    required>
+            </div>
+            <div class="form-group" style="display: inline;">
+            <label for="filterByHashtag" class="col-md-4 control-label">
+              Enter password:
+            </label>
+                <input type="text" 
+                    class="form-control"
+                    id="password"
+                    placeholder="password" 
+                    required>
+            </div>
+             <div class="form-group">
+                <button type="button"
+                        id="addButton"
+                        class="btn btn-primary mt-3">
+                    Submit
+                </button>
+            </div>
+          </div>
+        </form>
+      </div>
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- use the the full jQuery build, NOT the slim build-->
