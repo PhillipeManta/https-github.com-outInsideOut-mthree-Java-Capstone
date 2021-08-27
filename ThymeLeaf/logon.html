@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/ ">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -36,17 +36,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">About me</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
+                  <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
                                                                             <a class="nav-link" href="n">n</a> 
                                                                         </li> )}  -->
+                <li th:each="pageTitle : ${titles}" class="nav-item">
+                  <a class="nav-link" href="staticPage.html" th:text="${pageTitle}">Title</a>
+                </li>
               </ul>
             </div>
         </div>
