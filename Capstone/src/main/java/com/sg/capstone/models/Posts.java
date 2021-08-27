@@ -9,7 +9,7 @@ import java.util.Set;
  *
  * @author kylerudy
  */
-public class Posts {
+public class Posts extends Content {
 
     private int id;
     private User user;
