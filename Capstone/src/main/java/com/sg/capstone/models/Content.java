@@ -19,6 +19,14 @@ public class Content {
     public String staticYN;
     public String postNowYN;
 
+    public String getPostNowYN() {
+        return postNowYN;
+    }
+
+    public void setPostNowYN(String postNowYN) {
+        this.postNowYN = postNowYN;
+    }
+
     public String getStaticYN() {
         return staticYN;
     }

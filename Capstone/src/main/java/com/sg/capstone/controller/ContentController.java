@@ -7,9 +7,7 @@ import com.sg.capstone.service.StaticPageService;
 import com.sg.capstone.service.StaticPageServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,7 +23,8 @@ public class ContentController {
         return "addBlog";
     }
 
-    @GetMapping("PutContent")
+
+    @PostMapping("/PutContent")
     public void putContent(HttpServletRequest request, Content c) {
         c.setTitle(request.getParameter("title"));
         c.setImageURL(request.getParameter("imageURL"));
@@ -38,6 +37,7 @@ public class ContentController {
         else {
             pS.GetContent(c);
         }
+
     }
 
 }

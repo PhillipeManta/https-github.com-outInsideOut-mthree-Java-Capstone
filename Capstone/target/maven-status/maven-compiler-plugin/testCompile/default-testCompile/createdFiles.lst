@@ -1,0 +1,4 @@
+com\sg\capstone\CapstoneApplicationTests.class
+com\sg\capstone\dao\RoleDaoDbTest.class
+com\sg\capstone\dao\UserDaoDbTest.class
+com\sg\capstone\dao\PostsDaoDbTest.class

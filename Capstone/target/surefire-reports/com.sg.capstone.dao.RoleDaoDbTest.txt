@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: com.sg.capstone.dao.RoleDaoDbTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.104 s <<< FAILURE! - in com.sg.capstone.dao.RoleDaoDbTest
+testUpateStudent  Time elapsed: 0.044 s  <<< ERROR!
+org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+
+testAddAndGetRole  Time elapsed: 0.008 s  <<< ERROR!
+org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+
+testGetAllRoles  Time elapsed: 0.008 s  <<< ERROR!
+org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+
+testDeleteTeacherById  Time elapsed: 0.007 s  <<< ERROR!
+org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+

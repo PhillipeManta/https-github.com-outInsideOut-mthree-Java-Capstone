@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.sg.capstone.dao.UserDaoDbTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.032 s <<< FAILURE! - in com.sg.capstone.dao.UserDaoDbTest
+testAddAndGetTeacher  Time elapsed: 0 s  <<< ERROR!
+org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+	at com.sg.capstone.dao.UserDaoDbTest.setUp(UserDaoDbTest.java:46)
+
