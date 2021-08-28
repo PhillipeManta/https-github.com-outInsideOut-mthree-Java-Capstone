@@ -1,7 +1,0 @@
-com\sg\capstone\dao\InvalidIdException.class
-com\sg\capstone\models\Role.class
-com\sg\capstone\dao\CapstoneDao.class
-com\sg\capstone\dao\CapstoneDbDao.class
-com\sg\capstone\models\Posts.class
-com\sg\capstone\models\User.class
-com\sg\capstone\App.class
