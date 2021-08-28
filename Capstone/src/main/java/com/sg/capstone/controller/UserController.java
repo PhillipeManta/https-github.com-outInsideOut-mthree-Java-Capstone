@@ -19,7 +19,7 @@ public class UserController {
     UserDetailsService userDetailsService;
 
     @RequestMapping(value={"/logon.html"}, method= RequestMethod.GET)
-    public String displayHomePage() {
+    public String logon() {
         return "logon";
     }
 
