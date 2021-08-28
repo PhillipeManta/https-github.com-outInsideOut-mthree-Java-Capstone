@@ -27,7 +27,9 @@ import java.util.List;
  */
 @Controller
 public class PostsController {
-
+    
+    private String hashtag;
+    
     @Autowired
     PostsService postsService;
 
@@ -70,6 +72,11 @@ public class PostsController {
         postsService.deletePostsById(id);
         return "redirect:/posts";
     }
-
+    
+    @PostMapping("HashTagPosts") 
+    public void getHashtag(HttpServletRequest request) {
+        this.hashtag = request.getParameter("getHashtag");
+    }
+}
 
 }
