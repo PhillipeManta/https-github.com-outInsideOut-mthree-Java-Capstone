@@ -67,7 +67,7 @@
 
     <div class="container mx-12">
         <h2 class="pt-8">Add Content</h2>
-        <form method="post" role="form" id="addForm" action="@{/PutContent}" class="mx-12" th:object="${content}" value="true">
+        <form method="post" role="form" id="addForm" th:action="@{/content}" class="mx-12" th:object="${content}" value="true">
             <div class="form-group">
                 <label for="title" class="col-md-4 control-label">
                     Title:
@@ -118,12 +118,8 @@
                 </div>
             </span>
 
-            <div class="col-sm-1 col-md-2 mx-auto">
-                <button type="submit"
-                        id="addButton"
-                        class="btn btn-primary">
-                    Submit
-                </button>
+            <div class="form-group col-sm-1 col-md-2 mx-auto">
+                <p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p>
             </div>
         </form>
     </div>

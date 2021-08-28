@@ -24,19 +24,17 @@ public class ContentController {
     }
 
 
-    @PostMapping("/PutContent")
-    public void putContent(HttpServletRequest request, Content c) {
-        c.setTitle(request.getParameter("title"));
-        c.setImageURL(request.getParameter("imageURL"));
-        c.setPost(request.getParameter("post"));
-        c.setStaticYN(request.getParameter("staticYN"));
+    @PostMapping("/content")
+    public String putContent(@ModelAttribute Content content, Model model) {
 
-        if (c.getStaticYN().equals("true")) {
-            sPS.GetContent(c);
+        if (content.getStaticYN().equals("true")) {
+            sPS.GetContent(content);
         }
         else {
-            pS.GetContent(c);
+            pS.GetContent(content);
         }
+
+        return "redirect:/index.html";
 
     }
 

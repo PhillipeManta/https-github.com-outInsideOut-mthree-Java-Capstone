@@ -73,10 +73,10 @@ public class PostsDaoDb implements PostsDao{
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = df.format(date);
         String sqlDate = String.format("TO_DATE('%s', 'YYYY-MM-DD')", formattedDate);
-        final String INSERT_POST = "INSERT INTO posts(title, imageURL, post, isPosted, postDate)"
-                + "VALUES(?,?,?,?,?)";
+        final String INSERT_POST = "INSERT INTO posts(title, imageURL, post, isPosted)"
+                + "VALUES(?,?,?,?)";
         jdbc.update(INSERT_POST,
-                    posts.getTitle(),posts.getImageURL(),posts.getPost(),posts.isPosted(),sqlDate);
+                    posts.getTitle(),posts.getImageURL(),posts.getPost(),posts.isPosted());
         int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         posts.setId(newId);
         return posts;
