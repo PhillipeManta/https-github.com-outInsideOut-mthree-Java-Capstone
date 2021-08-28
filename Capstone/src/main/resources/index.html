@@ -56,9 +56,9 @@
     <div class="container">
       <div class="container row my-5" style="display: block;">
         <h2 class="pt-8">Filter by hashtag</h2>
-        <form method="post" role="form" id="getHashTagPosts" class="mx-12">
+        <form method="post" role="form" id="HashTagPosts" class="mx-12">
           <div class="form-group">
-            <label for="filterByHashtag" class="col-md-4 control-label">
+            <label for="getHashtag" class="col-md-4 control-label">
               Enter hashtag:
             </label>
             
@@ -66,7 +66,7 @@
 
                 <input type="text" 
                     class="form-control"
-                    id="getHashtagPosts"
+                    id="getHashtag"
                     placeholder="Title" 
                     required>
 
@@ -82,7 +82,7 @@
       </div>
 
       <!-- PENDING POSTS -->
-      <div th:each="blogPost : ${BlogPosts}">
+      <span th:each="blogPost : ${BlogPosts}">
         <span sec:authorize="hasRole(ADMIN)">
           <span th:unless="${blogPost.isPosted}">
             <span class="container row blogPost my-5">
@@ -98,16 +98,16 @@
               <div class="row date-row">
                 <p th:text="blogPost.date">02/11/1678</p> 
               </div>
-              
                   <div class="row admin">
                     <button class="btn btn-warning">DELETE</button>
                     <button class="btn btn-success">APPROVE</button>
                   </div> 
-              </div>
+              </span>
               <hr>
             </span>
-          </div>
+          </span>
       </span>
+
 
       <!-- APPROVED POSTS -->
       <div th:each="blogPost : ${BlogPosts}">
@@ -125,7 +125,6 @@
             <div class="row date-row">
               <p th:text="blogPost.date">02/11/1678</p> 
             </div>
-          </div>
           </span>
         </span>
         <hr>
