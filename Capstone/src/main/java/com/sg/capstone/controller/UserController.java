@@ -20,7 +20,6 @@ public class UserController {
     public String getUserDetails(HttpServletRequest request, Model model) throws UsernameFoundException {
         String userName = request.getParameter("userName");
         User user = userDetailsService.getUserDetails(userName);
-
         model.addAttribute("user", user);
         return "userDetails";
     }
