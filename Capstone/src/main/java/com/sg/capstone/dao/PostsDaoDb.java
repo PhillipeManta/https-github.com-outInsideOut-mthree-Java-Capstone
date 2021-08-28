@@ -1,8 +1,8 @@
 package com.sg.capstone.dao;
 
 import com.sg.capstone.models.Posts;
-import com.sg.capstone.models.Role;
 import com.sg.capstone.models.User;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Repository
@@ -64,10 +65,14 @@ public class PostsDaoDb implements PostsDao{
     @Override
     @Transactional
     public Posts addPost(Posts posts) {
-        final String INSERT_POST = "INSERT INTO posts(userId, title, imageURL, post, isPosted, postDate)"
-                + "VALUES(?,?,?,?,?,?)";
-        jdbc.update(INSERT_POST, posts.getUser().getId(),
-                    posts.getTitle(),posts.getImageURL(),posts.getPost(),posts.isPosted(),posts.getDate());
+        java.util.Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        String formattedDate = df.format(date);
+        String sqlDate = String.format("TO_DATE('%s', 'YYYY-MM-DD')", formattedDate);
+        final String INSERT_POST = "INSERT INTO posts(title, imageURL, post, isPosted, postDate)"
+                + "VALUES(?,?,?,?,?)";
+        jdbc.update(INSERT_POST,
+                    posts.getTitle(),posts.getImageURL(),posts.getPost(),posts.isPosted(),sqlDate);
         int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
         posts.setId(newId);
         return posts;
