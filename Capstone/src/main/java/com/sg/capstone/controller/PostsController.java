@@ -74,13 +74,18 @@ public class PostsController {
     }
     
     @PostMapping("HashTagPosts") 
-    public void getHashtag(HttpServletRequest request) {
+    public String getHashtag(HttpServletRequest request) {
         this.hashtag = request.getParameter("getHashtag");
+        return this.hashtag;
     }
     
     @GetMapping("FilterdPosts") 
-    public void filteredPosts() {
-        
+    public String filteredPosts(Model model, HttpServletRequest request) {
+        PostsController pc = new PostsController();
+        String hashtag = pc.getHashtag(request);
+        List<Posts> posts = postsDao.getHashtagPosts(hashtag);
+        model.addAttribute("FilterdPosts", posts);
+        return "FilterdPosts";
     }
 
 }
