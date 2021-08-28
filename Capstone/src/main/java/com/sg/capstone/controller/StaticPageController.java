@@ -3,6 +3,7 @@ package com.sg.capstone.controller;
 import com.sg.capstone.models.StaticPage;
 import com.sg.capstone.models.User;
 import com.sg.capstone.service.StaticPageService;
+import com.sg.capstone.service.TitleException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +15,7 @@ import java.util.List;
 
 @Controller
 public class StaticPageController {
-<<<<<<< HEAD
 
-
-=======
     @Autowired
     StaticPageService staticPageService;
 
@@ -29,7 +27,7 @@ public class StaticPageController {
     }
 
     @PostMapping("PutStaticPage")
-    public String putStaticPost(HttpServletRequest request) {
+    public String putStaticPost(HttpServletRequest request) throws TitleException {
         String title = request.getParameter("title");
         String imageURL = request.getParameter("imageURL");
         String post = request.getParameter("post");
@@ -43,5 +41,5 @@ public class StaticPageController {
 
         return "redirect:/GetStaticPages";
     }
->>>>>>> 166dcbb5cdc50a07cfece104877b737aef8ec7ac
+
 }
