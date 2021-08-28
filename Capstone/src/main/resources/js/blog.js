@@ -25,16 +25,16 @@ $(document).ready(function() {
                         "<div class=\"row date-row\">" +
                           "<p th:text=\"blogPost.date\">02/11/1678</p>" +
                         "</div>" +
-                            "<div class=\"row admin\">" +
-                              "<button class=\"btn btn-warning\">DELETE</button>" +
-                              "<button class=\"btn btn-success\">APPROVE</button>" +
-                            "</div>" +
+                        "<div class=\"row admin\">" +
+                          "<button class=\"btn btn-warning\">DELETE</button>" +
+                          "<button class=\"btn btn-success\">APPROVE</button>" +
+                        "</div>" +
                         "</span>" +
                         "<hr>" +
                       "</span>" +
                     "</span>" +
                 "</span>" 
-                );
+        );
 
     });
 });

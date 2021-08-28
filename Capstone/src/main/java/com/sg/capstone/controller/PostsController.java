@@ -77,6 +77,10 @@ public class PostsController {
     public void getHashtag(HttpServletRequest request) {
         this.hashtag = request.getParameter("getHashtag");
     }
-}
+    
+    @GetMapping("FilterdPosts") 
+    public void filteredPosts() {
+        
+    }
 
 }
