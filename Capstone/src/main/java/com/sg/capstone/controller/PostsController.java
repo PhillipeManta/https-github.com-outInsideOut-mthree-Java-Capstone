@@ -35,7 +35,6 @@ public class PostsController {
        else {
            pS.GetContent(c);
        }
-       
-       
+
    }
 }
