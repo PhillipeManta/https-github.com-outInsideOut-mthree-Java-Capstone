@@ -54,40 +54,74 @@
 
      <div class="container row my-5" style="display: block;">
         <h2 class="pt-8">Login</h2>
-        <form method="post" role="form" id="logon" class="mx-12">
-          <div class="form-group">
-            
-            
-            <div class="form-group" style="display: inline;">
-            <label for="username" class="col-md-4 control-label">
-              Enter username:
-            </label>
-                <input type="text" 
-                    class="form-control"
-                    id="username"
-                    placeholder="username" 
-                    required>
-            </div>
-            <div class="form-group" style="display: inline;">
-            <label for="password" class="col-md-4 control-label">
-              Enter password:
-            </label>
-                <input type="text" 
-                    class="form-control"
-                    id="password"
-                    placeholder="password" 
-                    required>
-            </div>
+<!--        <form method="post" role="form" id="logon" class="mx-12">-->
+<!--          <div class="form-group">-->
+<!--            -->
+<!--            -->
+<!--            <div class="form-group" style="display: inline;">-->
+<!--            <label for="username" class="col-md-4 control-label">-->
+<!--              Enter username:-->
+<!--            </label>-->
+<!--                <input type="text" -->
+<!--                    class="form-control"-->
+<!--                    id="username"-->
+<!--                    placeholder="username" -->
+<!--                    required>-->
+<!--            </div>-->
+<!--            <div class="form-group" style="display: inline;">-->
+<!--            <label for="password" class="col-md-4 control-label">-->
+<!--              Enter password:-->
+<!--            </label>-->
+<!--                <input type="text" -->
+<!--                    class="form-control"-->
+<!--                    id="password"-->
+<!--                    placeholder="password" -->
+<!--                    required>-->
+<!--            </div>-->
+<!--             <div class="form-group">-->
+<!--                <button type="button"-->
+<!--                        id="addButton"-->
+<!--                        class="btn btn-primary mt-3">-->
+<!--                    Submit-->
+<!--                </button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </form>-->
+
+         <form class="form-horizontal"
+               role="form"
+               method="post"
+               action="j_spring_security_check">
              <div class="form-group">
-                <button type="button"
-                        id="addButton"
-                        class="btn btn-primary mt-3">
-                    Submit
-                </button>
-            </div>
-          </div>
-        </form>
-      </div>
+                 <label for="j_username" class="col-md-4 control-label">Username:</label>
+                 <div class="col-md-8">
+                     <input type="text"
+                            class="form-control"
+                            id = "j_username"
+                            name="j_username"
+                            placeholder="Username"/>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <label for="j_password" class="col-md-4 control-label">Password:</label>
+                 <div class="col-md-8">
+                     <input type="text"
+                            class="form-control"
+                            id = "j_password"
+                            name="j_password"
+                            placeholder="Password"/>
+                 </div>
+             </div>
+             <div class="form-group">
+                 <div class="col-md-offset-4 col-md-8">
+                     <input type="submit"
+                            class="btn btn-default"
+                            id="search-button"
+                            value="Sign In"/>
+                 </div>
+             </div>
+         </form>
+     </div>
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- use the the full jQuery build, NOT the slim build-->
