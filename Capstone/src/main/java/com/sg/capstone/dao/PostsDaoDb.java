@@ -46,9 +46,9 @@ public class PostsDaoDb implements PostsDao{
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = df.format(date);
         String sqlDate = String.format("TO_DATE('%s', 'YYYY-MM-DD')", formattedDate);
-        final String SELECT_ALL_POSTS = "SELECT * FROM posts WHERE date > " + sqlDate;
+        final String SELECT_ALL_POSTS = "SELECT * FROM posts";
         List<Posts> allPosts = jdbc.query(SELECT_ALL_POSTS, new PostsMapper());
-        associateUsersForPosts(allPosts);
+        //associateUsersForPosts(allPosts);
         return allPosts;
     }
 
@@ -56,7 +56,7 @@ public class PostsDaoDb implements PostsDao{
     public List<Posts> getHashtagPosts(String hashtagWord) {
         final String SELECT_ALL_HASHTAG_POSTS = "SELECT * FROM posts WHERE post LIKE '%#" + hashtagWord + "%'";
         List<Posts> allPosts = jdbc.query(SELECT_ALL_HASHTAG_POSTS, new PostsMapper());
-        associateUsersForPosts(allPosts);
+        //associateUsersForPosts(allPosts);
         return allPosts;
     }
 
@@ -99,7 +99,7 @@ public class PostsDaoDb implements PostsDao{
     public List<Posts> getAllUpToDatePosts() {
         final String SELECT_ALL_UPTODATE_POSTS = "SELECT * FROM posts";
         List<Posts> allPosts = jdbc.query(SELECT_ALL_UPTODATE_POSTS, new PostsMapper());
-        associateUsersForPosts(allPosts);
+        //associateUsersForPosts(allPosts);
         return allPosts;
     }
 

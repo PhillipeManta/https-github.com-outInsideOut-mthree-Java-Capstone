@@ -91,7 +91,7 @@ public class PostsDaoDbTest {
         Posts post = new Posts();
 
         List<Posts> fromDao = postsDao.getAllPosts();
-
+        System.out.println();
         assertEquals(fromDao.size(), 6);
     }
     
