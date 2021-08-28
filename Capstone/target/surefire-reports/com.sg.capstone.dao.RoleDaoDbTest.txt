@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.sg.capstone.dao.RoleDaoDbTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 4.027 s <<< FAILURE! - in com.sg.capstone.dao.RoleDaoDbTest
+testUpateStudent  Time elapsed: 0.998 s  <<< ERROR!
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+
+testAddAndGetRole  Time elapsed: 1.009 s  <<< ERROR!
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+
+testGetAllRoles  Time elapsed: 1.012 s  <<< ERROR!
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+
+testDeleteTeacherById  Time elapsed: 1.008 s  <<< ERROR!
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.sg.capstone.dao.RoleDaoDbTest.setUp(RoleDaoDbTest.java:45)
+

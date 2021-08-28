@@ -7,7 +7,6 @@ package com.sg.capstone.controller;
 
 import com.sg.capstone.dao.PostsDao;
 import com.sg.capstone.dao.UserDao;
-import com.sg.capstone.models.Content;
 import com.sg.capstone.models.Posts;
 import com.sg.capstone.service.*;
 
@@ -22,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -64,7 +65,8 @@ public class PostsController {
 
         return "redirect:/posts";
     }
-
+    
+    
 
     @GetMapping("editBlogPost")
     public String editBlogPost(Posts posts, Model model) {
