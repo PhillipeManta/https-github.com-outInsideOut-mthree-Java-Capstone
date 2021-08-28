@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -18,6 +20,11 @@ public class StaticPageController {
 
     @Autowired
     StaticPageService staticPageService;
+
+    @RequestMapping(value={"/staticPage.html"}, method= RequestMethod.GET)
+    public String displayHomePage() {
+        return "staticPage";
+    }
 
     @GetMapping("GetStaticPages")
     public String getAllStaticPages(Model model) {
