@@ -59,7 +59,7 @@ public class UserDaoDbTest {
     }
 
     @Test
-    public void testAddAndGetTeacher() {
+    public void testAddAndGetUser() {
         Role role = new Role();
         role.setRole("TopUser");
         role = roleDao.addRole(role);
