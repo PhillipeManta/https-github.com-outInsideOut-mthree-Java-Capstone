@@ -8,6 +8,7 @@ package com.sg.capstone.dao;
 import com.sg.capstone.models.Posts;
 import com.sg.capstone.models.Role;
 import com.sg.capstone.models.User;
+import java.sql.Date;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -24,6 +25,8 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @SpringBootTest
 public class PostsDaoDbTest {
+    
+    Date date = null;
     
     @Autowired
     RoleDao roleDao;
@@ -47,7 +50,7 @@ public class PostsDaoDbTest {
     
     @BeforeEach
     public void setUp() {
-       /* List<Role> roles = roleDao.getAllRoles();
+        List<Role> roles = roleDao.getAllRoles();
         for (Role role : roles) {
             roleDao.deleteRoleById(role.getId());
         }
@@ -60,7 +63,7 @@ public class PostsDaoDbTest {
          List<Posts> posts= postsDao.getAllPosts();
         for (Posts post : posts) {
             postsDao.deletePostsById(post.getId());
-        }*/
+        }
     }
     
     @AfterEach
@@ -70,7 +73,7 @@ public class PostsDaoDbTest {
     
     @Test
     public void testAddAndGetPosts() {
-        /*Role role = new Role();
+        Role role = new Role();
         role.setRole("TopUser");
         role = roleDao.addRole(role);
         
@@ -85,14 +88,125 @@ public class PostsDaoDbTest {
         post.setTitle("Title_test");
         post.setImageURL("url_test");
         post.setPost("Post_test");
-        post.setPosted(false);
-        post = postsDao.addPost(post);*/
+        post.setPosted(false);    
+        post.setDate(date);
+        post = postsDao.addPost(post);
+
+        Posts fromDao = postsDao.getPostById(post.getId());
+
+        assertEquals(post, fromDao);
+    }
+    
+    
+    @Test
+    public void testGetAllPosts() {
+        Role role = new Role();
+        role.setRole("TopUser");
+        role = roleDao.addRole(role);
+        
+        User user = new User();
+        user.setUsername("Username_Test");
+        user.setPassword("Password_Test");
+        user.setRole(role);
+        user = userDao.addUser(user);
         
         Posts post = new Posts();
+        post.setUser(user);
+        post.setTitle("Title_test");
+        post.setImageURL("url_test");
+        post.setPost("Post_test");
+        post.setPosted(false);    
+        post.setDate(date);
+        post = postsDao.addPost(post);
+        
+        Posts post1 = new Posts();
+        post1.setUser(user);
+        post1.setTitle("Title_test1");
+        post1.setImageURL("url_test1");
+        post1.setPost("Post_test1");
+        post1.setPosted(false);    
+        post1.setDate(date);
+        post1 = postsDao.addPost(post1);
 
-        List<Posts> fromDao = postsDao.getAllPosts();
-        System.out.println();
-        assertEquals(fromDao.size(), 6);
+        List<Posts> posts = postsDao.getAllPosts();
+
+        assertEquals(2, posts.size());
+        assertTrue(posts.contains(post));
+        assertTrue(posts.contains(post1));
+    }
+    
+    @Test
+    public void testUpdatePosts() {
+        Role role = new Role();
+        role.setRole("TopUser");
+        role = roleDao.addRole(role);
+        
+        User user = new User();
+        user.setUsername("Username_Test");
+        user.setPassword("Password_Test");
+        user.setRole(role);
+        user = userDao.addUser(user);
+        
+        Posts post = new Posts();
+        post.setUser(user);
+        post.setTitle("Title_test");
+        post.setImageURL("url_test");
+        post.setPost("Post_test");
+        post.setPosted(false);    
+        post.setDate(date);
+        post = postsDao.addPost(post);
+
+        Posts fromDao = postsDao.getPostById(post.getId());
+        assertEquals(post, fromDao);
+        
+        post.setTitle("NewTitle_test");
+        Role role1 = new Role();
+        role1.setRole("NewTopUser");
+        role1 = roleDao.addRole(role1);
+        User user1 = new User();
+        user1.setUsername("NewUsername_Test");
+        user1.setPassword("NewPassword_Test");
+        user1.setRole(role1);
+        user1 = userDao.addUser(user1);
+        post.setUser(user1);
+        
+        postsDao.updatePosts(post);
+        assertNotEquals(post, fromDao);
+        
+        fromDao = postsDao.getPostById(post.getId());
+        assertEquals(post, fromDao);
+             
+    }
+    
+    
+    @Test
+    public void testDeletePostById() {
+        Role role = new Role();
+        role.setRole("TopUser");
+        role = roleDao.addRole(role);
+        
+        User user = new User();
+        user.setUsername("Username_Test");
+        user.setPassword("Password_Test");
+        user.setRole(role);
+        user = userDao.addUser(user);
+        
+        Posts post = new Posts();
+        post.setUser(user);
+        post.setTitle("Title_test");
+        post.setImageURL("url_test");
+        post.setPost("Post_test");
+        post.setPosted(false);    
+        post.setDate(date);
+        post = postsDao.addPost(post);
+
+        Posts fromDao = postsDao.getPostById(post.getId());
+
+        assertEquals(post, fromDao);
+        postsDao.deletePostsById(post.getId());
+
+        fromDao = postsDao.getPostById(post.getId());
+        assertNull(fromDao);
     }
     
 }
