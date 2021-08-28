@@ -24,9 +24,9 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     public void configureGlobalInMemory(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                    .withUser("user").password("userPassword").roles("USER")
+                    .withUser("user").password("{noop}userPassword").roles("USER")
                     .and()
-                    .withUser("admin").password("adminPassword").roles("ADMIN", "USER");
+                    .withUser("admin").password("{noop}adminPassword").roles("ADMIN", "USER");
     }
     
     @Override 
@@ -38,6 +38,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                     .loginPage("/logon.html")
+                    .failureUrl("/logon.html")
                     .permitAll()
                 .and()
                 .logout()
