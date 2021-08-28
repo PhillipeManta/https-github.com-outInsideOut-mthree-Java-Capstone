@@ -46,7 +46,7 @@ insert into `user`(`id`,`username`,`password`, roleId)
 insert into static(title, imageURL, post)
     values('Title1',"url1","post1"), ('Title2',"url2","post2"), ('Title3',"url3","post3");
         
-insert into posts(postId, userId, imageURL, post, isPosted, postDate)
+insert into posts(postId, userId, title, imageURL, post, isPosted, postDate)
 values
 ('401','101','#post1','303','post1',true,'2017-09-01'),
 ('402','101','#post2','302','post2',true,'2018-10-01'),
