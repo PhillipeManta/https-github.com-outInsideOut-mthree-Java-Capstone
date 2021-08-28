@@ -12,5 +12,6 @@ public interface PostsDao {
     Posts addPost(Posts posts);
     void updatePosts(Posts posts);
     void deletePostsById(int id);
+    List<Posts> getAllUpToDatePosts();
 
 }

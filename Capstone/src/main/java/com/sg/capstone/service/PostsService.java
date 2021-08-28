@@ -1,5 +1,6 @@
 package com.sg.capstone.service;
 
+import com.sg.capstone.dao.PostsDao;
 import com.sg.capstone.models.Content;
 import com.sg.capstone.models.Posts;
 
@@ -14,6 +15,6 @@ public interface PostsService {
 
     public List<Posts> getAllPosts(Date dt);
 
-    public void updatePosts(Posts posts);
+    public PostsDao updatePosts(Posts posts);
 
 }

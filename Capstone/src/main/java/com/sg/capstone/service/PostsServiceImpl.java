@@ -1,21 +1,16 @@
 package com.sg.capstone.service;
 
 import com.sg.capstone.dao.PostsDao;
-import com.sg.capstone.dao.StaticPageDao;
 import com.sg.capstone.models.Content;
 import com.sg.capstone.models.Posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 @Service
 public class PostsServiceImpl implements PostsService{
@@ -53,33 +48,34 @@ public class PostsServiceImpl implements PostsService{
         dao.deletePostsById(id);
     }
 
+//    @Override
+//    public List<Posts> getAllPosts(Date dt) {
+//
+//        //The date needs to have this format yyyy/MM/dd
+//        java.util.Date myDate = parseDate(dt.toString());
+//        Calendar cal = Calendar.getInstance();
+//        cal.setTime(myDate);
+//
+//        java.util.Date dateNow = new java.util.Date();
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTime(dateNow);
+//        calendar.get(Calendar.DAY_OF_MONTH);
+//
+//        List<Posts> allPosts = dao.getAllPosts();
+//        List<Posts> upToDatePosts = new ArrayList<>();
+//        for(Posts post : allPosts){
+//            if(daysBetween(cal, calendar) > 31){
+//                upToDatePosts.add(post);
+//            }
+//        }
+//        return upToDatePosts;
+//    }
+
     @Override
-    public List<Posts> getAllPosts(Date dt) {
-
-        //The date needs to have this format yyyy/MM/dd
-        java.util.Date myDate = parseDate(dt.toString());
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(myDate);
-
-        java.util.Date dateNow = new java.util.Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(dateNow);
-        calendar.get(Calendar.DAY_OF_MONTH);
-
-        List<Posts> allPosts = dao.getAllPosts();
-        List<Posts> upToDatePosts = new ArrayList<>();
-        for(Posts post : allPosts){
-            if(daysBetween(cal, calendar) > 31){
-                upToDatePosts.add(post);
-            }
-        }
-        return upToDatePosts;
-    }
-
-    @Override
-    public void updatePosts(Posts posts) {
+    public PostsDao updatePosts(Posts posts) {
         posts.setPosted(true);
         dao.updatePosts(posts);
+        return dao;
     }
 
 

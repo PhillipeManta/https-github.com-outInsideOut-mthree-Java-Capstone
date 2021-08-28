@@ -85,6 +85,14 @@ public class PostsDaoDb implements PostsDao{
         jdbc.update(DELETE_POST, id);
     }
 
+    @Override
+    public List<Posts> getAllUpToDatePosts() {
+        final String SELECT_ALL_UPTODATE_POSTS = "SELECT * FROM posts";
+        List<Posts> allPosts = jdbc.query(SELECT_ALL_UPTODATE_POSTS, new PostsMapper());
+        associateUsersForPosts(allPosts);
+        return allPosts;
+    }
+
     public static final class PostsMapper implements RowMapper<Posts> {
 
         @Override
