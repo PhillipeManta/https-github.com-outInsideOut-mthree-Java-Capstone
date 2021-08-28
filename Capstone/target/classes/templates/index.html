@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/ " xmlns:sec="http://www.w3.org/1999/xhtml">
-  <head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -83,20 +83,20 @@
 
       <!-- PENDING POSTS -->
       <span th:each="blogPost : ${BlogPosts}">
-        <span sec:authorize="hasRole(ADMIN)">
+        <span sec:authorize="hasRole('ADMIN')" >
           <span th:unless="${blogPost.isPosted}">
             <span class="container row blogPost my-5">
               <div class="row title-row">
-                <h3 th:text="blogPost.title">Blog 1</h3>
+                <h3 th:text="${blogPost.title}">Blog 1</h3>
               </div>
               <div class="row body-row">
-                <p th:text="blogPost.post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat</p>
+                <p th:text="${blogPost.post}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat</p>
               </div>
               <div class="row img-row mx-auto img-fluid">
                 <img class="rounded mx-auto d-block" th:src="blogPost.imageURL">
               </div>
               <div class="row date-row">
-                <p th:text="blogPost.date">02/11/1678</p>
+                <p th:text="${blogPost.date}">02/11/1678</p>
               </div>
                   <div class="row admin">
                     <button class="btn btn-warning">DELETE</button>
@@ -114,16 +114,16 @@
         <span th:if="${blogPost.isPosted}">
           <span class="container row blogPost my-5">
             <div class="row title-row">
-              <h3 th:text="blogPost.title">Blog 1</h3>
+              <h3 th:text="${blogPost.title}">Blog 1</h3>
             </div>
             <div class="row body-row">
-              <p th:text="blogPost.post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat</p>
+              <p th:text="${blogPost.post}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat</p>
             </div>
             <div class="row img-row mx-auto img-fluid">
               <img class="rounded mx-auto d-block" th:src="blogPost.imageURL">
             </div>
             <div class="row date-row">
-              <p th:text="blogPost.date">02/11/1678</p>
+              <p th:text="${blogPost.date}">02/11/1678</p>
             </div>
           </span>
         </span>

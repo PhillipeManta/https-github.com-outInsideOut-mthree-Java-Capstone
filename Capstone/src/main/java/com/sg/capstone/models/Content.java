@@ -5,15 +5,27 @@
  */
 package com.sg.capstone.models;
 
+import org.springframework.stereotype.Component;
+
 /**
  *
  * @author fionn
  */
+@Component
 public class Content {
     public String title;
     public String post;
     public String imageURL;
-    public boolean staticYN;
+    public String staticYN;
+    public String postNowYN;
+
+    public String getStaticYN() {
+        return staticYN;
+    }
+
+    public void setStaticYN(String staticYN) {
+        this.staticYN = staticYN;
+    }
 
     public String getTitle() {
         return title;
@@ -39,13 +51,7 @@ public class Content {
         this.imageURL = imageURL;
     }
 
-    public boolean isStaticYN() {
-        return staticYN;
-    }
 
-    public void setStaticYN(boolean staticYN) {
-        this.staticYN = staticYN;
-    }
     
     
 }

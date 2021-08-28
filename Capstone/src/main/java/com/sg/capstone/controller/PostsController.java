@@ -43,16 +43,18 @@ public class PostsController {
     UserDao userDao;
 
     @RequestMapping(value={"/", "/home", "/index.html"}, method= RequestMethod.GET)
-    public String displayHomePage() {
+    public String displayHomePage(Model model) {
+        List<Posts> posts = postsService.getAllPosts();
+        model.addAttribute("BlogPosts", posts);
         return "index";
     }
 
     @GetMapping("BlogPosts")
-    public String displayPosts(Model model) {
-        List<Posts> posts = postsService.getAllPosts();
-        model.addAttribute("BlogPosts", posts);
-        return "BlogPosts";
-    }
+//    public String displayPosts(Model model) {
+//        List<Posts> posts = postsService.getAllPosts();
+//        model.addAttribute("BlogPosts", posts);
+//        return "BlogPosts";
+//    }
 
 
     @PostMapping("PutBlogPost")

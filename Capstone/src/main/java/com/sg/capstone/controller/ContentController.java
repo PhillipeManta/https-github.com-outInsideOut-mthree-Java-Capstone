@@ -6,6 +6,7 @@ import com.sg.capstone.service.PostsServiceImpl;
 import com.sg.capstone.service.StaticPageService;
 import com.sg.capstone.service.StaticPageServiceImpl;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,19 +20,19 @@ public class ContentController {
     StaticPageService sPS = new StaticPageServiceImpl();
 
     @RequestMapping(value={"/addBlog.html"}, method= RequestMethod.GET)
-    public String displayHomePage() {
+    public String displayHomePage(Model model) {
+        model.addAttribute("content", new Content());
         return "addBlog";
     }
 
     @GetMapping("PutContent")
-    public void putContent(HttpServletRequest request) {
-        Content c = new Content();
+    public void putContent(HttpServletRequest request, Content c) {
         c.setTitle(request.getParameter("title"));
         c.setImageURL(request.getParameter("imageURL"));
         c.setPost(request.getParameter("post"));
-        c.setStaticYN(Boolean.parseBoolean(request.getParameter("staticYN")));
+        c.setStaticYN(request.getParameter("staticYN"));
 
-        if (c.isStaticYN()) {
+        if (c.getStaticYN().equals("true")) {
             sPS.GetContent(c);
         }
         else {
