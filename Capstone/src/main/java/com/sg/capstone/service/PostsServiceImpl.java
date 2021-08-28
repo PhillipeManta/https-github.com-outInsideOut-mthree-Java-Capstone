@@ -51,8 +51,6 @@ public class PostsServiceImpl implements PostsService{
 
 
 
-
-
     @Override
     public PostsDao updatePosts(Posts posts) {
         posts.setPosted(true);
