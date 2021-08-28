@@ -27,7 +27,6 @@
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:4.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.32" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.3.9" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.9" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.9" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-thymeleaf:2.5.4" level="project" />
     <orderEntry type="library" name="Maven: org.thymeleaf:thymeleaf-spring5:3.0.12.RELEASE" level="project" />
@@ -49,8 +48,6 @@
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-websocket:9.0.52" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.3.9" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.9" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.9" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.9" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.boot:spring-boot-devtools:2.5.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.5.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.5.4" level="project" />
@@ -92,5 +89,10 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.security:spring-security-test:5.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-crypto:5.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-taglibs:5.2.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-acl:5.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.9" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.9" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.9" level="project" />
   </component>
 </module>
