@@ -43,8 +43,8 @@
                                                                             <a class="nav-link" href="n">n</a> 
                                                                         </li> )}  -->
 
-                <li th:each="pageTitle : ${allPageTitles}" class="nav-item">
-                  <a class="nav-link" th:href="staticPage.html/page=${pageTitle}" th:text="${pageTitle}">Title</a>
+                <li th:each="staticPage : ${GetStaticPages}" class="nav-item">
+                  <a class="nav-link" th:href="staticPage.html/page=${staticPage.title}" th:text="${staticPage.title}">Title</a>
                 </li>
 
               </ul>
@@ -53,7 +53,7 @@
     </nav>
 
     <div class="container m-12">
-      <div th:each="staticPage : ${GetAllStaticPages}">
+      <div th:each="staticPage : ${GetStaticPages}">
         <span th:if="${staticPage.title == ${#httpServletRequest.getParameter('page')}}">
           <div class="row text-center pt-5">
             <h2 id="title" th:text="staticPage.title">I'm a title</h2>
