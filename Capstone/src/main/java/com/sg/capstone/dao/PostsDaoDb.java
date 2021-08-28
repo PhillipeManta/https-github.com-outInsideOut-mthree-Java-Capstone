@@ -38,9 +38,10 @@ public class PostsDaoDb implements PostsDao{
         return jdbc.queryForObject(SELECT_USER_FOR_POST, new UserDaoDb.UserMapper(), id);
     }
 
+    //Returns posts from the last month
     @Override
     public List<Posts> getAllPosts() {
-        final String SELECT_ALL_POSTS = "SELECT * FROM posts";
+        final String SELECT_ALL_POSTS = "SELECT * FROM posts WHERE date > 2021-07-28";
         List<Posts> allPosts = jdbc.query(SELECT_ALL_POSTS, new PostsMapper());
         associateUsersForPosts(allPosts);
         return allPosts;
