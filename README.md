@@ -4,7 +4,7 @@ Group (final) project for mthree's Java/full stack training
 **Colaborators**: Inald Gjoni (inaldgjoni@gmail.com), Fionn O'Connor (fionnoconnor.dev@gmail.com), Raluca Lupu (radu_raluca76@yahoo.com), Phillipe Manta (filip.manta@yahoo.com)
 
 
-## Trello Board
+## Team Working
 This screenshot shows the kanbab approach taken by the team, we had twice-daily standups between the front and back end teams.
 Raluca and Phillipe took the backend, whilst Inald and Fionn both worked on the front-end. This was acheived by both individual and pair programming, using slack and zoom to communicate.
 ![alt text](/Screenshots/kanbanBoard.png)
