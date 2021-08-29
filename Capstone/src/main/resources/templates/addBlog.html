@@ -57,7 +57,7 @@
                                                                         </li> )}  -->
 
                 <li th:each="staticPage : ${GetStaticPages}" class="nav-item">
-                  <a class="nav-link" th:href="staticPage.html/page=${staticPage.title}" th:text="${staticPage.title}">Title</a>
+                    <a class="nav-link" th:href="@{'/staticPage.html?id=' + ${staticPage.title}}" th:text="${staticPage.title}">Title</a>
                 </li>
 
               </ul>

@@ -8,6 +8,7 @@ package com.sg.capstone.controller;
 import com.sg.capstone.dao.PostsDao;
 import com.sg.capstone.dao.UserDao;
 import com.sg.capstone.models.Posts;
+import com.sg.capstone.models.StaticPage;
 import com.sg.capstone.service.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,9 +31,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class PostsController {
-    
+
     private String hashtag;
-    
+    @Autowired
+    StaticPageService staticPageService;
     @Autowired
     PostsService postsService;
 
@@ -46,6 +48,8 @@ public class PostsController {
     public String displayHomePage(Model model) {
         List<Posts> posts = postsService.getAllPosts();
         model.addAttribute("BlogPosts", posts);
+        List<StaticPage> staticPages = staticPageService.getAllStaticPages();
+        model.addAttribute("GetStaticPages", staticPages);
         return "index";
     }
 
