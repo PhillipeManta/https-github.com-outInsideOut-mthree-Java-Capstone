@@ -30,7 +30,7 @@ public class ContentController {
     }
 
 
-    @PostMapping("/content")
+    @PostMapping("addContent")
     public String putContent(@ModelAttribute Content content, Model model) {
 
         if (content.getStaticYN().equals("true")) {

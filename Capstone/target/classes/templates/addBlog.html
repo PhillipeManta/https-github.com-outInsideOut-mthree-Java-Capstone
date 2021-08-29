@@ -67,7 +67,7 @@
 
     <div class="container mx-12">
         <h2 class="pt-8">Add Content</h2>
-        <form method="post" role="form" id="addForm" th:action="@{/content}" class="mx-12" th:object="${content}" value="true">
+        <form action="addContent" method="POST" class="form" th:object="${content}">
             <div class="form-group">
                 <label for="title" class="col-md-4 control-label">
                     Title:
@@ -77,7 +77,7 @@
                     <input type="text" th:field="*{title}"
                            class="form-control"
                            id="title"
-                           placeholder="Add a Title"
+                           placeholder="Add a Title" name="title"
                            required>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     Body:
                 </label>
                 <div class = "mx-auto">
-                    <textarea id="post" th:field="*{post}" required ></textarea>
+                    <textarea id="post" th:field="*{post}" name="post" required ></textarea>
                 </div>
             </div>
 
@@ -98,7 +98,7 @@
                 <div class="col-md-8">
                     <input type="text"  th:field="*{imageURL}"
                            class="form-control"
-                           id="imageURL"
+                           id="imageURL" name="imageURL"
                            placeholder="Please enter the Image URL"
                            >
                 </div>
@@ -108,19 +108,19 @@
                     <label for="staticYN" class="col-md-4 control-label">
                         <p>Is this page a Static Page?</p>
                     </label>
-                    <input type = "checkbox" id = "staticYN" name = "staticYN" th:field="*{staticYN}" value = "true">
+                    <input type = "checkbox" id = "staticYN" name ="staticYN" th:field="*{staticYN}" value = "true">
                 </div>
                 <div class = "form-group">
                     <label for="isPosted" class="col-md-4 control-label">
                         <p>Would you like the post to go up now?</p>
                     </label>
-                    <input type = "checkbox" id = "isPosted" name = "isPosted" th:field="*{postNowYN}" value="true">
+                    <input type = "checkbox" id = "isPosted" name="isPosted" th:field="*{postNowYN}" value="true">
                 </div>
             </span>
 
-            <div class="form-group col-sm-1 col-md-2 mx-auto">
-                <p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p>
-            </div>
+
+            <button type="submit" class="btn btn-primary">Add Post</button>
+
         </form>
     </div>
     
