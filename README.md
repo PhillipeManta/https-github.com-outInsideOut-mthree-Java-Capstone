@@ -35,8 +35,8 @@ Raluca and Phillipe took the backend, whilst Inald and Fionn both worked on the 
 ![alt text](/Screenshots/userView.png "User's view of blog posts without approval or pending")
 
 ### Test results
-![alt text](/Screenshots/PostsServiceTest.png)
-![alt text](/Screenshots/PostsServiceTest2.png)
-![alt text](/Screenshots/StaticPageServiceTests.png)
-![alt text](/Screenshots/UsersServiceTests.png)
+![alt text](/Screenshots/PostsServiceTest.PNG)
+![alt text](/Screenshots/PostsServiceTest2.PNG)
+![alt text](/Screenshots/StaticPageServiceTests.PNG)
+![alt text](/Screenshots/UsersServiceTests.PNG)
 
