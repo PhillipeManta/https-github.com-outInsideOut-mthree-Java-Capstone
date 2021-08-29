@@ -26,7 +26,7 @@ Group (final) project for mthree's Java/full stack training
 ### Trello Board
 This screenshot shows the kanbab approach taken by the team, we had twice-daily standups.
 Raluca and Phillipe took the backend, whilst Inald and Fionn both worked on the front-end. This was acheived by both individual and pair programming, using slack and zoom to communicate.
-![alt text](/Screenshots/trelloBoard.png)
+![alt text](/Screenshots/kanbanBoard.png)
 
 ### Admin's view of blog posts with approval options
 ![alt text](/Screenshots/adminView.png "Admin's view of blog posts with approval options")
