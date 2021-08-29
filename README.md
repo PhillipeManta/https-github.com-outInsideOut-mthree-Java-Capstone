@@ -42,6 +42,6 @@ Raluca and Phillipe took the backend, whilst Inald and Fionn both worked on the 
 ![alt text](/Screenshots/UsersSeriviceTests.PNG)
 
 ### Adding a post
-![](/formAdd)
-![](/result)
+![](/Screenshots/formAdd.png)
+![](/Screenshots/result.png)
 
