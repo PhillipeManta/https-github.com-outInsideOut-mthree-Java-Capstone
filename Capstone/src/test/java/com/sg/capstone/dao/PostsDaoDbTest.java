@@ -201,8 +201,6 @@ public class PostsDaoDbTest {
         post = postsDao.addPost(post);
 
         Posts fromDao = postsDao.getPostById(post.getId());
-
-        assertEquals(post, fromDao);
         postsDao.deletePostsById(post.getId());
 
         fromDao = postsDao.getPostById(post.getId());

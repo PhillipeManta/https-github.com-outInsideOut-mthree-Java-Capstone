@@ -36,7 +36,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
     @Override
     public User getUserById(int id) throws InvalidIdException {
-        if(dao.getUserById(id) != null){
+        if(dao.getUserById(id) == null){
             throw new InvalidIdException("ERROR: Could not return a user with that id!");
         }
         return dao.getUserById(id);

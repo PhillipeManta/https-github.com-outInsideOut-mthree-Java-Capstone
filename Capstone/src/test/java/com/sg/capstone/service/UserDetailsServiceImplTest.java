@@ -1,11 +1,16 @@
 package com.sg.capstone.service;
 
 import com.sg.capstone.dao.InvalidIdException;
+import com.sg.capstone.dao.RoleDao;
 import com.sg.capstone.dao.UserDao;
+import com.sg.capstone.models.Role;
 import com.sg.capstone.models.User;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,20 +20,43 @@ class UserDetailsServiceImplTest {
     @Autowired
     UserDetailsService userDetailsService;
 
+    @Autowired
+    UserDao userDao;
+
+    @Autowired
+    RoleDao roleDao;
+
     public UserDetailsServiceImplTest(){
     }
 
-    @Test
-    void getUserDetails() throws InvalidIdException {
-        User testUser = new User();
-        testUser.setId(25);
-        testUser.setUsername("User3");
-        testUser.setPassword("password");
+    @BeforeEach
+    public void setUp() {
+        List<User> users= userDao.getAllUsers();
+        for (User user : users) {
+            userDao.deleteUserById(user.getId());
+        }
 
-        User shouldBeUser3 = userDetailsService.getUserById(25);
-        assertNotNull(shouldBeUser3, "Getting 25 should be not null.");
-        assertEquals( shouldBeUser3, testUser,
-                "User stored under 25 should be User3.");
+        List<Role> roles = roleDao.getAllRoles();
+        for (Role role : roles) {
+            roleDao.deleteRoleById(role.getId());
+        }
+    }
+
+    @Test
+    void getUserDetails() throws InvalidIdException, UsernameFoundException {
+        Role role = new Role();
+        role.setRole("TopUser");
+        role = roleDao.addRole(role);
+
+        User user = new User();
+        user.setUsername("Username_Test");
+        user.setPassword("Password_Test");
+        user.setRole(role);
+        user = userDao.addUser(user);
+
+        User fromDao = userDetailsService.getUserById(user.getId());
+        assertEquals(user, fromDao);
+
     }
 
     @Test

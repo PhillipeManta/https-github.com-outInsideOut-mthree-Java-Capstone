@@ -24,6 +24,7 @@ class StaticPageServiceImplTest {
         clone.setTitle("Title1");
         clone.setImageURL("URL1");
         clone.setPost("Posting about a day in the life of a man");
+        staticPageService.putStaticPage(clone);
 
         StaticPage shouldBePost1 = staticPageService.getStaticPageByTitle(clone.getTitle());
         assertNotNull(shouldBePost1, "Getting post1 should be not null.");
@@ -54,8 +55,7 @@ class StaticPageServiceImplTest {
         clone.setImageURL("URL2");
         clone.setPost("Posting about anything");
 
-        List<StaticPage> listOfStaticPages = staticPageService.getAllStaticPages();
-        assertEquals(3, staticPageService.getAllStaticPages().size(),"Should only have 3 staticPage.");
+        assertEquals(1, staticPageService.getAllStaticPages().size(),"Should only have 1 staticPage.");
         assertFalse( staticPageService.getAllStaticPages().contains(clone),
                 "There should be 3 static pages.");
     }
