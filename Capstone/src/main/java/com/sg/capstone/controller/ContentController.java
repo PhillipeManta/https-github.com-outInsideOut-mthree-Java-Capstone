@@ -68,13 +68,6 @@ public class ContentController {
             pS.GetContent(content);
 
         }
-//        if (!content.getStaticYN().equals(null)) {
-//            sPS.GetContent(content);
-//        }
-//        else {
-//            pS.GetContent(content);
-//        }
-
         return "redirect:/index.html";
 
     }
