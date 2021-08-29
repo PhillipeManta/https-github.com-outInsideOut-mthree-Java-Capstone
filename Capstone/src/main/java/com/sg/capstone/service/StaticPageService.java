@@ -5,6 +5,9 @@ import com.sg.capstone.models.StaticPage;
 
 import java.util.List;
 
+/**
+ * Interface for StaticPageService
+ */
 public interface StaticPageService {
 
     public StaticPage getStaticPageByTitle(String title) throws TitleException;

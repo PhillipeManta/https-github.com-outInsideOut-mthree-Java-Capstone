@@ -4,9 +4,9 @@ package com.sg.capstone;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 /**
- *
- * @author kylerudy
+ * Class from which the application starts running
  */
 @SpringBootApplication
 public class App  {

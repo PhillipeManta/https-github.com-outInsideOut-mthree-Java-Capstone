@@ -10,12 +10,21 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * StaticPageService implementation
+ */
 @Service
 public class StaticPageServiceImpl implements StaticPageService{
 
     @Autowired
     StaticPageDao dao;
 
+    /**
+     * Retrieves a single static page according to the title given
+     * @param title
+     * @return
+     * @throws TitleException
+     */
     @Override
     public StaticPage getStaticPageByTitle(String title) throws TitleException{
 
@@ -26,6 +35,12 @@ public class StaticPageServiceImpl implements StaticPageService{
 
     }
 
+    /**
+     * Adds a static Page
+     * @param staticPage
+     * @return
+     * @throws TitleException
+     */
     @Override
     public StaticPage putStaticPage(StaticPage staticPage) throws TitleException {
 
@@ -36,6 +51,10 @@ public class StaticPageServiceImpl implements StaticPageService{
 
     }
 
+    /**
+     * Returns a list of static page titles.
+     * @return
+     */
     @Override
     public String getAllStaticPagesTitles() {
         List<StaticPage> staticPages = dao.getAllStaticPages();
@@ -46,11 +65,21 @@ public class StaticPageServiceImpl implements StaticPageService{
         return staticPagesTitles.toString();
     }
 
+    /**
+     * Returns a list of all static pages
+     * @return
+     */
     @Override
     public List<StaticPage> getAllStaticPages() {
         return dao.getAllStaticPages();
     }
 
+    /**
+     * Creates a StaticPage object and sets the details needed
+     * for when a static page is displayed. adds the staticPage
+     * via the StaticPageDao object
+     * @param c
+     */
     @Override
     public void GetContent(Content c) {
         StaticPage sp = new StaticPage();
