@@ -26,7 +26,7 @@ public class Posts extends Content {
     private String imageURL;
     private String post;
     private Date date;
-    private boolean isPosted;
+    private boolean isPosted = true;
 
     public int getId() {
         return id;

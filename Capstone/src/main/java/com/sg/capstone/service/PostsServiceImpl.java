@@ -33,6 +33,18 @@ public class PostsServiceImpl implements PostsService{
         p.setImageURL(c.getImageURL());
         p.setTitle(c.getTitle());
         p.setPost(c.getPost());
+        try {
+            if (c.getPostNowYN().equals("yes")) {
+                p.setPosted(true);
+            }
+            else {
+                p.setPosted(false);
+            }
+        }
+        catch (Exception e) {
+                p.setPosted(false);
+        }
+
         dao.addPost(p);
     }
 

@@ -22,9 +22,9 @@
             </div>
             <div class="col-3 pt-3">
               <a href="logon.html" class="btn btn-info">login</a>
-              <sec:authorize access="hasRole('USER')">
+                <span sec:authorize="hasRole('USER')">
                   <a href="addBlog.html" class="mid-level btn btn-info">Add Content</a>
-              </sec:authorize>
+                </span>
             </div>
         </div>
         <hr>
@@ -56,7 +56,7 @@
 
 
     <div class="container">
-      <div class="container row my-5" style="display: block;">
+      <div class="row my-5" style="display: block;">
         <h2 class="pt-8">Filter by hashtag</h2>
         <form method="post" role="form" id="HashTagPosts" class="mx-12">
           <div class="form-group">
@@ -83,54 +83,47 @@
         </form>
       </div>
 
-      <!-- PENDING POSTS -->
-      <span th:each="blogPost : ${BlogPosts}">
-        <span sec:authorize="hasRole('ADMIN')" >
-          <span th:unless="${blogPost.isPosted}">
-            <span class="container row blogPost my-5">
-              <div class="row title-row">
-                <h3 th:text="${blogPost.title}">Blog 1</h3>
-              </div>
-              <div class="row body-row">
-                <p th:text="${blogPost.post}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat</p>
-              </div>
-              <div class="row img-row mx-auto img-fluid">
-                <img class="rounded mx-auto d-block" th:src="${blogPost.imageURL}">
-              </div>
-              <div class="row date-row">
-                <p th:text="${blogPost.date}">02/11/1678</p>
-              </div>
-                  <div class="row admin">
-                    <button class="btn btn-warning">DELETE</button>
-                    <button class="btn btn-success">APPROVE</button>
+
+        <div class="container m-12">
+            <div th:each="blogPost : ${BlogPosts}">
+                <span sec:authorize="hasRole('ADMIN')" >
+                    <span th:unless="${blogPost.isPosted}">
+                      <div class="row text-center pt-5">
+                        <h2  th:text="${blogPost.title}">I'm a title</h2>
+                      </div>
+                      <div class="row pt-3">
+                        <p  th:text="${blogPost.post}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat. Praesent non efficitur ante. Donec pharetra ligula eu dui placerat auctor eget ut dui. Phasellus maximus leo ac lacus aliquam, sit amet blandit neque pellentesque. Sed a diam neque. Quisque aliquam facilisis mattis. Praesent vel egestas erat. Aliquam magna justo, pretium eu arcu ac, maximus porta eros. Duis vel ante eget dui venenatis laoreet. Nulla interdum ligula eu massa consectetur cursus. </p>
+                      </div>
+                      <div class="row text-center">
+                        <img class="rounded mx-auto d-block" th:src="${blogPost.imageURL}">
+                      </div>
+                       <div style="display:inline">
+                            <button class="btn btn-warning">DELETE</button>
+                            <button class="btn btn-success">APPROVE</button>
+                       </div>
+                        <hr>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="container m-12">
+            <div th:each="blogPost : ${BlogPosts}">
+                <span th:if="${blogPost.isPosted}">
+                  <div class="row text-center pt-5">
+                    <h2 th:text="${blogPost.title}">I'm a title</h2>
                   </div>
-              </span>
-              <hr>
-            </span>
-          </span>
-      </span>
+                  <div class="row pt-3">
+                    <p th:text="${blogPost.post}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat. Praesent non efficitur ante. Donec pharetra ligula eu dui placerat auctor eget ut dui. Phasellus maximus leo ac lacus aliquam, sit amet blandit neque pellentesque. Sed a diam neque. Quisque aliquam facilisis mattis. Praesent vel egestas erat. Aliquam magna justo, pretium eu arcu ac, maximus porta eros. Duis vel ante eget dui venenatis laoreet. Nulla interdum ligula eu massa consectetur cursus. </p>
+                  </div>
+                  <div class="row text-center">
+                    <img class="rounded mx-auto d-block" th:src="${blogPost.imageURL}">
+                  </div>
+                  <hr>
+                </span>
+            </div>
+        </div>
 
-
-      <!-- APPROVED POSTS -->
-      <div th:each="blogPost : ${BlogPosts}">
-        <span th:if="${blogPost.isPosted}">
-          <span class="container row blogPost my-5">
-            <div class="row title-row">
-              <h3 th:text="${blogPost.title}">Blog 1</h3>
-            </div>
-            <div class="row body-row">
-              <p th:text="${blogPost.post}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat</p>
-            </div>
-            <div class="row img-row mx-auto img-fluid">
-              <img class="rounded mx-auto d-block" th:src="${blogPost.imageURL}">
-            </div>
-            <div class="row date-row">
-              <p th:text="${blogPost.date}">02/11/1678</p>
-            </div>
-          </span>
-        </span>
-        <hr>
-      </div>
 
 
 
