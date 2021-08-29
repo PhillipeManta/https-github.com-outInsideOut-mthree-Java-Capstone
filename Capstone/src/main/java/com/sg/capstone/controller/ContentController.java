@@ -31,14 +31,22 @@ public class ContentController {
 
 
     @PostMapping("addContent")
-    public String putContent(@ModelAttribute Content content, Model model) {
+    public String putContent(Content content, Model model) {
 
-        if (content.getStaticYN().equals("true")) {
-            sPS.GetContent(content);
-        }
-        else {
+        try{
+            if(!content.getStaticYN().equals(null)) {
+                sPS.GetContent(content);
+            }
+        }catch(Exception e){
             pS.GetContent(content);
+
         }
+//        if (!content.getStaticYN().equals(null)) {
+//            sPS.GetContent(content);
+//        }
+//        else {
+//            pS.GetContent(content);
+//        }
 
         return "redirect:/index.html";
 
