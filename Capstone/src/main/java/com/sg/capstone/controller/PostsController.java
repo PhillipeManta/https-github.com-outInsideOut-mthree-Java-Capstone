@@ -29,6 +29,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author fionn
  */
+
+/**
+ * Controller that deals with the handling of displaying posts
+ * in the index.html file.
+ */
 @Controller
 public class PostsController {
 
@@ -44,6 +49,13 @@ public class PostsController {
     @Autowired
     UserDao userDao;
 
+    /**
+     * Method to retrieve all posts via the posts service.
+     * This is then written to the model and access via thyme leaf
+     * in the index.html file to print on the webpage
+     * @param model
+     * @return
+     */
     @RequestMapping(value={"/", "/home", "/index.html"}, method= RequestMethod.GET)
     public String displayHomePage(Model model) {
         List<Posts> posts = postsService.getAllPosts();
