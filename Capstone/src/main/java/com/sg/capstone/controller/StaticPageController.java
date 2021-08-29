@@ -21,17 +21,19 @@ public class StaticPageController {
     @Autowired
     StaticPageService staticPageService;
 
-    @RequestMapping(value={"/staticPage.html"}, method= RequestMethod.GET)
-    public String displayHomePage() {
+    @RequestMapping(value={"/staticPage.html", "/index.html", "/addBlog.html"}, method= RequestMethod.GET)
+    public String displayHomePage(Model model) {
+        List<StaticPage> staticPages = staticPageService.getAllStaticPages();
+        model.addAttribute("GetStaticPages", staticPages);
         return "staticPage";
     }
 
     @GetMapping("GetStaticPages")
-    public String getAllStaticPages(Model model) {
-        List<StaticPage> staticPages = staticPageService.getAllStaticPages();
-        model.addAttribute("GetStaticPages", staticPages);
-        return "GetStaticPages";
-    }
+//    public String getAllStaticPages(Model model) {
+//        List<StaticPage> staticPages = staticPageService.getAllStaticPages();
+//        model.addAttribute("GetStaticPages", staticPages);
+//        return "GetStaticPages";
+//    }
 
     @PostMapping("PutStaticPage")
     public String putStaticPost(HttpServletRequest request) throws TitleException {
