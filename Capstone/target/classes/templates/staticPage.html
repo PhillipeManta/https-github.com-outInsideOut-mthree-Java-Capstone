@@ -42,7 +42,7 @@
                 <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
                                                                             <a class="nav-link" href="n">n</a> 
                                                                         </li> )}  -->
-
+<!--                // loop through static pages and populate the navbar-->
                 <li th:each="staticPage : ${GetStaticPages}" class="nav-item">
                     <a class="nav-link" th:href="@{'/staticPage.html?id=' + ${staticPage.title}}" th:text="${staticPage.title}">Title</a>
                 </li>
@@ -54,8 +54,10 @@
     </nav>
 
     <div class="container m-12">
+<!--        loop through static pages-->
       <div th:each="staticPage : ${GetStaticPages}">
 <!--        <span th:if="${#strings.equals(#httpServletRequest.getParameter('id'), 'Title1')}">&ndash;&gt;-->
+<!--          if static page title meets the url variable-->
         <span th:if="${#httpServletRequest.getParameter('id')} == ${staticPage.title}">
           <div class="row text-center pt-5">
             <h2 id="title" th:text="${staticPage.title}">I'm a title</h2>

@@ -40,7 +40,8 @@ Raluca and Phillipe took the backend, whilst Inald and Fionn both worked on the 
 ![alt text](/Screenshots/PostsServiceTest2.PNG)
 ![alt text](/Screenshots/StaticPageServiceTests.PNG)
 ![alt text](/Screenshots/UsersSeriviceTests.PNG)
-
+![alt text](/Screenshots/raluca1.PNG)
+![alt text](/Screenshots/raluca2.PNG)
 ### Adding a post
 ![](/Screenshots/formAdd.png)
 ![](/Screenshots/result.png)
