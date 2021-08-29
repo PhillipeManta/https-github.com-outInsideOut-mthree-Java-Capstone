@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -19,13 +21,13 @@ class StaticPageServiceImplTest {
     @Test
     void getStaticPageByTitle() throws TitleException {
         StaticPage clone = new StaticPage();
-        clone.setTitle("post1");
+        clone.setTitle("Title1");
         clone.setImageURL("URL1");
         clone.setPost("Posting about a day in the life of a man");
 
         StaticPage shouldBePost1 = staticPageService.getStaticPageByTitle(clone.getTitle());
         assertNotNull(shouldBePost1, "Getting post1 should be not null.");
-        assertEquals( clone, shouldBePost1,
+        assertEquals( clone.getTitle(), shouldBePost1.getTitle(),
                 "StaticPage stored under post1 title should be post1.");
     }
 
@@ -52,9 +54,10 @@ class StaticPageServiceImplTest {
         clone.setImageURL("URL2");
         clone.setPost("Posting about anything");
 
-        assertEquals(1, staticPageService.getAllStaticPages().size(),"Should only have one staticPage.");
-        assertTrue( staticPageService.getAllStaticPages().contains(clone),
-                "The one page should be post1.");
+        List<StaticPage> listOfStaticPages = staticPageService.getAllStaticPages();
+        assertEquals(3, staticPageService.getAllStaticPages().size(),"Should only have 3 staticPage.");
+        assertFalse( staticPageService.getAllStaticPages().contains(clone),
+                "There should be 3 static pages.");
     }
 
 }

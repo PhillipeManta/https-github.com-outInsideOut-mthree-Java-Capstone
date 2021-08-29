@@ -46,7 +46,40 @@ public class StaticPageController {
 
         staticPageService.putStaticPage(staticPage);
 
-        return "redirect:/GetStaticPages";
+        return "redirect:/staticPage";
     }
+
+
+    /*
+
+         @RequestMapping(value={"/staticPage.html"}, method= RequestMethod.GET)
+    public String displayHomePage(Model model) {
+        List<StaticPage> staticPages = staticPageService.getAllStaticPages();
+        model.addAttribute("GetStaticPages", staticPages);
+        return "staticPage";
+    }
+
+    @GetMapping("GetStaticPages")
+    /*public String getAllStaticPages(Model model) {
+        List<StaticPage> staticPages = staticPageService.getAllStaticPages();
+        model.addAttribute("GetStaticPages", staticPages);
+        return "GetStaticPages";
+    }
+
+    @PostMapping("PutStaticPage")
+    public String putStaticPost(HttpServletRequest request) throws TitleException {
+        String title = request.getParameter("title");
+        String imageURL = request.getParameter("imageURL");
+        String post = request.getParameter("post");
+
+        StaticPage staticPage = new StaticPage();
+        staticPage.setTitle(title);
+        staticPage.setImageURL(imageURL);
+        staticPage.setPost(post);
+
+        staticPageService.putStaticPage(staticPage);
+
+        return "redirect:/GetStaticPages";
+    }*/
 
 }

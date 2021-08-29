@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/ " xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,7 +22,7 @@
             </div>
             <div class="col-3 pt-3">
                 <a href="logon.html" class="btn btn-info">login</a>
-                <span sec:authorize="hasRole(USER)">
+                <span sec:authorize="hasRole('USER')">
                   <a href="addBlog.html" class="mid-level btn btn-info">Add Content</a>
                 </span>
             </div>
@@ -47,6 +47,7 @@
                   <a class="nav-link" th:href="staticPage.html/page=${staticPage.title}" th:text="${staticPage.title}">Title</a>
                 </li>
 
+
               </ul>
             </div>
         </div>
@@ -56,13 +57,13 @@
       <div th:each="staticPage : ${GetStaticPages}">
         <span th:if="${staticPage.title == ${#httpServletRequest.getParameter('page')}}">
           <div class="row text-center pt-5">
-            <h2 id="title" th:text="staticPage.title">I'm a title</h2>
+            <h2 id="title" th:text="${staticPage.title}">I'm a title</h2>
           </div>
           <div class="row pt-3">
-            <p id="bodyText" th:text="staticPage.post">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat. Praesent non efficitur ante. Donec pharetra ligula eu dui placerat auctor eget ut dui. Phasellus maximus leo ac lacus aliquam, sit amet blandit neque pellentesque. Sed a diam neque. Quisque aliquam facilisis mattis. Praesent vel egestas erat. Aliquam magna justo, pretium eu arcu ac, maximus porta eros. Duis vel ante eget dui venenatis laoreet. Nulla interdum ligula eu massa consectetur cursus. </p>
+            <p id="bodyText" th:text="${staticPage.post}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat. Praesent non efficitur ante. Donec pharetra ligula eu dui placerat auctor eget ut dui. Phasellus maximus leo ac lacus aliquam, sit amet blandit neque pellentesque. Sed a diam neque. Quisque aliquam facilisis mattis. Praesent vel egestas erat. Aliquam magna justo, pretium eu arcu ac, maximus porta eros. Duis vel ante eget dui venenatis laoreet. Nulla interdum ligula eu massa consectetur cursus. </p>
           </div>
           <div class="row text-center">
-            <img class="rounded mx-auto d-block" th:src="staticPage.imageURL">
+            <img class="rounded mx-auto d-block" th:src="${staticPage.imageURL}">
           </div>
         </span>
       </div>

@@ -42,10 +42,12 @@
                 <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
                                                                             <a class="nav-link" href="n">n</a>
                                                                         </li> )}  -->
-
                 <li th:each="staticPage : ${GetStaticPages}" class="nav-item">
-                  <a class="nav-link" th:href="staticPage.html/page=${staticPage.title}" th:text="${staticPage.title}">Title</a>
+                    <a class="nav-link" th:href="staticPage.html/page=${staticPage.title}" th:text="${staticPage.title}">Title</a>
                 </li>
+<!--                  <a class="nav-link" th:href="staticPage.html">Title1</a>-->
+
+
 
               </ul>
             </div>
@@ -93,7 +95,7 @@
                 <p th:text="${blogPost.post}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat</p>
               </div>
               <div class="row img-row mx-auto img-fluid">
-                <img class="rounded mx-auto d-block" th:src="blogPost.imageURL">
+                <img class="rounded mx-auto d-block" th:src="${blogPost.imageURL}">
               </div>
               <div class="row date-row">
                 <p th:text="${blogPost.date}">02/11/1678</p>
@@ -120,7 +122,7 @@
               <p th:text="${blogPost.post}">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus nunc nec pulvinar fringilla. Nam in eros eros. Duis est urna, fermentum ac rutrum non, elementum et ex. Pellentesque convallis aliquam nunc sed placerat. Fusce eu elit at ligula malesuada ultrices. Suspendisse nisl arcu, interdum nec luctus in, sodales id velit. Vestibulum viverra, justo non facilisis malesuada, metus orci congue orci, id tristique dui tortor ac erat</p>
             </div>
             <div class="row img-row mx-auto img-fluid">
-              <img class="rounded mx-auto d-block" th:src="blogPost.imageURL">
+              <img class="rounded mx-auto d-block" th:src="${blogPost.imageURL}">
             </div>
             <div class="row date-row">
               <p th:text="${blogPost.date}">02/11/1678</p>
