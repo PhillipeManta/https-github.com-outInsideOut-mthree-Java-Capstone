@@ -38,5 +38,5 @@ Raluca and Phillipe took the backend, whilst Inald and Fionn both worked on the 
 ![alt text](/Screenshots/PostsServiceTest.PNG)
 ![alt text](/Screenshots/PostsServiceTest2.PNG)
 ![alt text](/Screenshots/StaticPageServiceTests.PNG)
-![alt text](/Screenshots/UsersServiceTests.PNG)
+![alt text](/Screenshots/UsersSeriviceTests.PNG)
 
