@@ -11,6 +11,17 @@ import org.springframework.stereotype.Component;
  *
  * @author fionn
  */
+
+/**
+ * Parent class of Posts.
+ *
+ * As posts and static pages are similar in what
+ * they contain this DTO is used when the admin wants
+ * to switch between making a normal blog post
+ * or adding a new static change. The content the data
+ * entered by the user regardless, however what is done
+ * with this data depends on if the user makes the page static or not.
+ */
 @Component
 public class Content {
     public String title;
