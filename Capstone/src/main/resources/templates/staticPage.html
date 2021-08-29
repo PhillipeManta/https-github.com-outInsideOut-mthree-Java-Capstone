@@ -55,7 +55,8 @@
 
     <div class="container m-12">
       <div th:each="staticPage : ${GetStaticPages}">
-<!--        <span th:if="${staticPage.title == ${#httpServletRequest.getParameter('page')}}">-->
+<!--        <span th:if="${#strings.equals(#httpServletRequest.getParameter('id'), 'Title1')}">&ndash;&gt;-->
+        <span th:if="${#httpServletRequest.getParameter('id')} == ${staticPage.title}">
           <div class="row text-center pt-5">
             <h2 id="title" th:text="${staticPage.title}">I'm a title</h2>
           </div>
@@ -65,7 +66,7 @@
           <div class="row text-center">
             <img class="rounded mx-auto d-block" th:src="${staticPage.imageURL}">
           </div>
-<!--        </span>-->
+        </span>
       </div>
     </div>
     
