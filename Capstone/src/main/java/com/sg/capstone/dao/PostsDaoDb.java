@@ -21,6 +21,11 @@ public class PostsDaoDb implements PostsDao{
     @Autowired
     JdbcTemplate jdbc;
 
+    /**
+     * Gets posts via SQL according to an ID
+     * @param id
+     * @return
+     */
     @Override
     public Posts getPostById(int id) {
         try {
@@ -39,7 +44,10 @@ public class PostsDaoDb implements PostsDao{
         return jdbc.queryForObject(SELECT_USER_FOR_POST, new UserDaoDb.UserMapper(), id);
     }
 
-    //Returns posts from the last month
+    /**
+     * Retrieves all posts from the posts table
+     * @return
+     */
     @Override
     public List<Posts> getAllPosts() {
         java.util.Date date = new Date();
@@ -52,6 +60,12 @@ public class PostsDaoDb implements PostsDao{
         return allPosts;
     }
 
+    /**
+     * Retrieves a list of posts according to whether a certain hashtag is present
+     * within the body of the post.
+     * @param hashtagWord
+     * @return
+     */
     @Override
     public List<Posts> getHashtagPosts(String hashtagWord) {
         final String SELECT_ALL_HASHTAG_POSTS = "SELECT * FROM posts WHERE post LIKE '%#" + hashtagWord + "%'";
@@ -66,6 +80,12 @@ public class PostsDaoDb implements PostsDao{
         }
     }
 
+    /**
+     * Adds a post to the table "posts", after filling out
+     * the addBlog.html page correctly.
+     * @param posts
+     * @return
+     */
     @Override
     @Transactional
     public Posts addPost(Posts posts) {
@@ -103,6 +123,10 @@ public class PostsDaoDb implements PostsDao{
         return allPosts;
     }
 
+    /**
+     * Mapper used to map the results from the database into a "posts" object when
+     * retrieving a record.
+     */
     public static final class PostsMapper implements RowMapper<Posts> {
 
         @Override

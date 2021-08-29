@@ -4,6 +4,9 @@ import com.sg.capstone.models.User;
 
 import java.util.List;
 
+/**
+ * Interface for the User DTO
+ */
 public interface UserDao {
 
     User getUserById(int id);

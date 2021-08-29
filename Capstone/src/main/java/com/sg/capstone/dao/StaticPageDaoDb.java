@@ -18,6 +18,11 @@ public class StaticPageDaoDb implements StaticPageDao{
     @Autowired
     JdbcTemplate jdbc;
 
+    /**
+     * Retrieves a static pages according to its title
+     * @param title
+     * @return
+     */
     @Override
     public StaticPage getStaticPageByTitle(String title) {
         try {
@@ -28,12 +33,21 @@ public class StaticPageDaoDb implements StaticPageDao{
         }
     }
 
+    /**
+     * Retrieves all static pages as a list
+     * @return
+     */
     @Override
     public List<StaticPage> getAllStaticPages() {
         final String GET_ALL_STATICPAGE = "SELECT * FROM static";
         return jdbc.query(GET_ALL_STATICPAGE, new StaticPageMapper());
     }
 
+    /**
+     * adds a static page to the static page table in the database
+     * @param staticPage
+     * @return
+     */
     @Override
     public StaticPage addStaticPage(StaticPage staticPage) {
         final String INSERT_STATICPAGE = "INSERT INTO static (title, imageURL, post) VALUES(?, ?, ?)";
@@ -54,6 +68,10 @@ public class StaticPageDaoDb implements StaticPageDao{
         jdbc.update(DELETE_STATIC_PAGE, title);
     }
 
+    /**
+     * Mapper used to map the static page values fetched from a record in the static page
+     * table into a StaticPage object
+     */
     public static final class StaticPageMapper implements RowMapper<StaticPage>{
 
         @Override

@@ -4,6 +4,9 @@ import com.sg.capstone.models.StaticPage;
 
 import java.util.List;
 
+/**
+ * Interface for the StaticPage DTO
+ */
 public interface StaticPageDao {
 
     StaticPage getStaticPageByTitle(String title);

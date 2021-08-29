@@ -4,6 +4,9 @@ import com.sg.capstone.models.Role;
 
 import java.util.List;
 
+/**
+ * Interface for the Role DTO
+ */
 public interface RoleDao {
 
     Role getRoleById(int id);
