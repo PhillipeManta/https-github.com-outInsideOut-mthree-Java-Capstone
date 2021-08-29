@@ -9,6 +9,12 @@ package com.sg.capstone.config;
  *
  * @author fionn
  */
+
+/**
+ * This class is only here to notify spring boot of where to find
+ * specific security methods.
+ */
+
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
 public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplicationInitializer {

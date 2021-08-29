@@ -17,9 +17,21 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * @author fionn
  */
 
+/**
+ * Security class that deals with the priviledges that each level of account has
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
+
+    /**
+     * Method for setting the username and password for both the admin and user account
+     *
+     * Admin has higher level permissions as they can do everything a user account can do
+     * and more.
+     * @param auth
+     * @throws Exception
+     */
     @Autowired
     public void configureGlobalInMemory(AuthenticationManagerBuilder auth) throws Exception {
         auth
