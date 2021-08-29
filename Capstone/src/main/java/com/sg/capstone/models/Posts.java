@@ -8,6 +8,16 @@ import java.util.Set;
  *
  * @author kylerudy
  */
+
+/**
+ * Posts DTO
+ *
+ * Maps directly to the Posts table in the database
+ * Used to communicate with the database and client side so that
+ * users can retrieve posts and add new ones
+ *
+ * Is a subclass of Content
+ */
 public class Posts extends Content {
 
     private int id;

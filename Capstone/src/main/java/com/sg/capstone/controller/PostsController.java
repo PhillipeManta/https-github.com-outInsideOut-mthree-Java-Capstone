@@ -66,11 +66,6 @@ public class PostsController {
     }
 
     @GetMapping("BlogPosts")
-//    public String displayPosts(Model model) {
-//        List<Posts> posts = postsService.getAllPosts();
-//        model.addAttribute("BlogPosts", posts);
-//        return "BlogPosts";
-//    }
 
 
     @PostMapping("PutBlogPost")

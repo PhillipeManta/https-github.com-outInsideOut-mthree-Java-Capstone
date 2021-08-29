@@ -8,6 +8,9 @@ import com.sg.capstone.models.StaticPage;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * Interface for the PostService
+ */
 public interface PostsService {
     
     public void GetContent(Content c);

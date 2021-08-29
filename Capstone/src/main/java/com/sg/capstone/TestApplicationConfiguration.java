@@ -15,6 +15,10 @@ import org.springframework.context.annotation.FilterType;
  *
  * @author Raluca
  */
+
+/**
+ * Needed for testing purposes.
+ */
 @Configuration
 @ComponentScan(excludeFilters = @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, 
         value = CommandLineRunner.class))

@@ -2,6 +2,11 @@ package com.sg.capstone.models;
 
 import java.util.Objects;
 
+/**
+ * Static Page DTO
+ *
+ * Maps directly to the StaticPage table in the database.
+ */
 public class StaticPage {
 
     private String title;

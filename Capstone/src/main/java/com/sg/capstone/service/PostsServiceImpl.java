@@ -13,12 +13,20 @@ import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.List;
 
+/**
+ * Implementation for the PostService.
+ */
 @Service
 public class PostsServiceImpl implements PostsService{
 
     @Autowired
     PostsDao dao;
 
+    /**
+     * Establishes a new post object and sets the details of the
+     * post. The PostDao object is then called to add the post
+     * @param c
+     */
     @Override
     public void GetContent(Content c) {
         Posts p = new Posts();
@@ -28,6 +36,11 @@ public class PostsServiceImpl implements PostsService{
         dao.addPost(p);
     }
 
+    /**
+     * Deletes the post according to an Id given.
+     * @param id
+     * @throws PostException
+     */
     @Override
     @Transactional
     public void deletePostsById(int id) throws PostException{
@@ -37,8 +50,11 @@ public class PostsServiceImpl implements PostsService{
         dao.deletePostsById(id);
     }
 
-
-
+    /**
+     * Updates a post currently displayed
+     * @param posts
+     * @return
+     */
     @Override
     public PostsDao updatePosts(Posts posts) {
         posts.setPosted(true);
@@ -46,6 +62,11 @@ public class PostsServiceImpl implements PostsService{
         return dao;
     }
 
+    /**
+     * retrieves all posts via the Post Dao object.
+     * Returns a list.
+     * @return
+     */
     @Override
     public List<Posts> getAllPosts() {
         return dao.getAllPosts();
