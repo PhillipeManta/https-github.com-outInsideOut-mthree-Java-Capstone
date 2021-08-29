@@ -21,7 +21,7 @@ public class StaticPageController {
     @Autowired
     StaticPageService staticPageService;
 
-    @RequestMapping(value={"/staticPage.html", "/addBlog.html"}, method= RequestMethod.GET)
+    @RequestMapping(value={"/staticPage.html"}, method= RequestMethod.GET)
     public String displayHomePage(Model model) {
         List<StaticPage> staticPages = staticPageService.getAllStaticPages();
         model.addAttribute("GetStaticPages", staticPages);
