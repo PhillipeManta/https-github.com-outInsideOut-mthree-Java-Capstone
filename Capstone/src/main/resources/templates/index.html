@@ -39,13 +39,10 @@
                 <li class="nav-item">
                   <a class="nav-link" href="index.html">Home</a>
                 </li>
-                <!-- for (navItemTitle n : GET(staticPages.title)) {add(<li class="nav-item">
-                                                                            <a class="nav-link" href="n">n</a>
-                                                                        </li> )}  -->
+
                 <li th:each="staticPage : ${GetStaticPages}" class="nav-item">
                     <a class="nav-link" th:href="@{'/staticPage.html?id=' + ${staticPage.title}}" th:text="${staticPage.title}">Title</a>
                 </li>
-<!--                  <a class="nav-link" th:href="staticPage.html">Title1</a>-->
 
 
 
@@ -85,8 +82,11 @@
 
 
         <div class="container m-12">
+<!--            loop through blog posts-->
             <div th:each="blogPost : ${BlogPosts}">
+<!--                only admini can see-->
                 <span sec:authorize="hasRole('ADMIN')" >
+<!--                    only show not posted/pending -->
                     <span th:unless="${blogPost.isPosted}">
                       <div class="row text-center pt-5">
                         <h2  th:text="${blogPost.title}">I'm a title</h2>
@@ -108,7 +108,9 @@
         </div>
 
         <div class="container m-12">
+<!--            loop through blogposts-->
             <div th:each="blogPost : ${BlogPosts}">
+<!--                if it is published-->
                 <span th:if="${blogPost.isPosted}">
                   <div class="row text-center pt-5">
                     <h2 th:text="${blogPost.title}">I'm a title</h2>

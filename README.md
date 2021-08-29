@@ -45,3 +45,8 @@ Raluca and Phillipe took the backend, whilst Inald and Fionn both worked on the 
 ![](/Screenshots/formAdd.png)
 ![](/Screenshots/result.png)
 
+### Form views
+## Admin
+![](/Screenshots/BlogAdminView.png)
+## User
+![](/Screenshots/BlogUserView.png)
